@@ -1,32 +1,28 @@
 # Session Handoff
 
-- **Updated:** 2026-11-14
-- **Product:** SK's App Menu
-- **Current phase:** Architecture and feasibility drafted/reviewed; user approval pending
+Updated2026-11-14. Product SK's App Menu1.0.0(1). Branch feature/native-rebuild. No merge/push.
 
-## Confirmed decisions
+## Completed
 
-User selected native rebuild and the name SK's App Menu. Metadata uses provisional com.siveesh.sksappmenu; internal target SKsAppMenu. Existing Application Menu workspace folder retained.
+Architecture/Feasibility explicitly approved by user, then native rebuild implemented. Core recursive discovery finds real Photoshop2027 and DaVinci Resolve nested apps. Management includes manual add, hide/restore, persistent/custom categories, missing-app Locate and recovery. Native menu has app icons installed before layout, concise labels, bounded long names/full tooltips and shortcuts, per user's refinement.31 tests pass; Release local DMG created/verified and running local test installation.
 
-## Reviewable deliverables
+## Artifacts and commands
 
-Architecture.md contains behavior, modules, discovery boundaries, app identity, persistent overrides, recovery, concurrency, and acceptance criteria. Feasibility.md compares frameworks, storage, discovery and distribution with official Apple sources. Independent builder review reported “nothing important left.” No product implementation exists.
+- Build/Testing/SK's App Menu.app — current running Release-based local test app, copied from DMG.
+- Release/SKsAppMenu-1.0.0-local.dmg — checksum verified; ad-hoc/runtime signed, not notarized.
+- Build/Evidence — retained raw logs; Verification.md documents actual evidence.
+- `./script/build_and_run.sh --verify` — canonical Debug build/run.
+- `./scripts/test.sh` — Xcode full suite; `swift test` — core only.
+- `./scripts/package.sh <new-artifact-version>` — refuses same-version overwrite.
 
-## Proposed defaults requiring design approval
+## Preferences and recoverability
 
-macOS 27.0+, Apple silicon; installed stable Xcode 27.2/Swift 6.4.2, Swift 6 mode; AppKit native menu plus SwiftUI management; local JSON storage; direct unsandboxed distribution with Hardened Runtime; no online dependencies. Runtime compatibility and signing remain untested.
+Normal storage ~/Library/Application Support/com.siveesh.sksappmenu. Preview RuntimeQA settings were copied only because normal catalog did not yet exist, preserving one hidden app and one category override. No existing user catalog was overwritten. Original launcher/apps untouched. Package staging cleaned, DMG detached; QA settings and evidence retained intentionally. Use /usr/bin/python3 for governance because default pyenv shim is broken.
 
-## Verification and lessons
+## Remaining work
 
-Strict kickoff, architecture and feasibility checks returned exit 0, zero warnings. Final documentation verification is recorded in Verification.md. Default python3 is a broken pyenv shim; use /usr/bin/python3. The project pre-commit script and installed hook now explicitly invoke the system interpreter. Genuine interpreter lesson appended through the orchestrator lessons-learned bridge; no invented product lessons.
+User acceptance, full VoiceOver/light-mode/pointer/Help/About manual qualification, macOS27.0 runtime testing, public licence selection and optional Developer ID/notarization. Do not claim public-distribution eligibility from ad-hoc verification. No production signing credentials inspected or provisioned. Existing native-control session had external-state invalidations; its incomplete picker round-trip is not a product failure claim.
 
-## Next actions
+## Lessons and decisions
 
-1. Obtain explicit approval of Architecture.md and Feasibility.md, or revise requested details.
-2. Invoke writing-plans after approval; retrieve implementation-specific macOS knowledge before Apple API implementation.
-3. Implement approved core, then menu and management, then Help/About/branding in focused increments.
-4. Execute QA and performance phase, then final documentation phase. Never infer app build/install/release evidence from governance checks.
-
-## Retention
-
-No app installed, original app-menu untouched, no temporary build artifacts generated. Keep documentation and template tooling under version control. Upstream source algorithm and reusable About assets still need inspection before any reuse.
+Recorded genuine issues: cancellation boundaries, root bundle traversal, unique unmatched relocation, current Apple category identifiers, static-core hosted-test linkage, stale Add/Locate snapshots, settings recovery state, and generated-artifact governance false positives. See ImplementationLedger.md, CoreImplementationReport.md, UIImplementationReport.md and global lessons. Current workspace retained on feature branch; checked-in generated Xcode project builds without XcodeGen dependency at build time.

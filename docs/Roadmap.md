@@ -1,11 +1,10 @@
 # Roadmap
 
-| Phase | Scope | Exit evidence | Status |
-| --- | --- | --- | --- |
-| 1. Architecture | Native menu, discovery, preferences, management | Architecture.md reviewed and user approved | Draft ready for review |
-| 2. Feasibility | Toolchain, APIs, distribution, licence trade-offs | Feasibility.md user approved | Next |
-| 3. Implementation | Approved core, menu, management, Help/About | Recorded build and focused tests | Awaiting both approvals |
-| 4. QA & Performance | Functional, recovery, accessibility, latency | QA.md and Verification.md evidence | Planned |
-| 5. Documentation | Help, build instructions, limitations, handoff | Strict governance verification and final review | Maintained throughout; final pass planned |
-
-Release packaging follows accepted QA and documentation; it is not a substitute for phase 5.
+| Phase | Status | Evidence |
+| --- | --- | --- |
+| 1. Architecture | Approved2026-11-14 | Architecture.md |
+| 2. Feasibility | Approved2026-11-14 | Feasibility.md |
+| 3. Implementation | Complete | Native app/core/store, Debug+Release builds |
+| 4. QA & Performance | Automated pass; smoke assessment complete |31 tests, independent review fixes, fixture/installed scans; manual qualification gaps in QA.md |
+| 5. Documentation | Complete for local milestone | Help, README, verification, changelog, issues, handoff, lessons bridge |
+| Public release qualification | Pending | Developer ID/notarization, licence, full accessibility/OS coverage |

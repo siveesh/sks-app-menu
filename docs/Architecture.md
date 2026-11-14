@@ -1,11 +1,11 @@
 # SK's App Menu — Architecture
 
-Status: Proposed — awaiting user approval
+Status: Approved
 Last reviewed: 2026-11-14
 
 ## Intent and decisions
 
-Replace the categorized menu-bar launcher with a native Swift app that discovers apps inside vendor folders and gives the owner lasting control over visibility and categories. User selected the native rebuild approach on 2026-11-14 and named the product SK's App Menu. This selects the approach; approval of this document and Feasibility.md remains pending.
+Replace the categorized menu-bar launcher with a native Swift app that discovers apps inside vendor folders and gives the owner lasting control over visibility and categories. User selected the native rebuild approach on 2026-11-14 and named the product SK's App Menu. This selects the approach; both documents were approved by Siveesh on 2026-11-14.
 
 Identity: display name `SK's App Menu`; provisional bundle identifier `com.siveesh.sksappmenu`; internal target `SKsAppMenu`; repository slug `sks-app-menu`. Keep the existing workspace folder to avoid disrupting the open workspace.
 
@@ -78,7 +78,7 @@ Use system controls/materials for macOS appearance. Include layered Icon Compose
 
 ## Milestones and acceptance
 
-1. Architecture: user reviews this document; approval is pending.
+1. Architecture: user reviews this document; approved by Siveesh on 2026-11-14.
 2. Feasibility: recommendation and constraints documented; user approval required.
 3. Implementation: core scanner/store/reconciler first; then menu and management; then Help/About/branding. Small increments with focused evidence.
 4. QA/performance: verify nested Photoshop/Resolve fixtures plus real installed apps when available; restart persistence; unreadable roots; malformed metadata; duplicate copies; moved/missing apps; corruption/write failure; stale scan results; keyboard/VoiceOver; native light/dark appearance.
@@ -89,3 +89,7 @@ Provisional targets, to measure rather than claim: menu opens within 100 ms once
 ## Builder discretion and risks
 
 Builder may choose file organization, private protocol names, test framework, and small UI spacing. Prefer an Xcode app target plus test target; no project generator dependency needed. Revisit design for permissions that prevent discovery, ambiguous identity reconciliation, or an API requiring a changed entitlement. Runtime compatibility is unverified until the app is built and exercised. The upstream missing-app cause has not been source-validated; recursive discovery is a requirement-driven design.
+
+## Approved interface refinement — 2026-11-14
+
+User requested icons beside app menu listings and a narrower menu fitted to content and shortcuts. Attach cached native app icons before submenu layout; use concise status/action titles and parent-folder disambiguation. Native intrinsic menu sizing remains; unusually long names are elided to a 240-point text budget, with full names/paths in tooltips and Manage Applications. Add exposes Cmd-O alongside existing management/refresh/help/quit equivalents. This is an authorized UI refinement, not a new approval gate.

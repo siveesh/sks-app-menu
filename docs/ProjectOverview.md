@@ -8,7 +8,7 @@
 - **Bundle identifier:** com.siveesh.sksappmenu (provisional)
 - **Internal target:** SKsAppMenu
 - **Repository slug:** sks-app-menu
-- **Target platform:** macOS; proposed minimum 27.0, Apple silicon
+- **Target platform:** macOS; minimum 27.0, Apple silicon
 - **Initialized:** 2026-11-14
 - **Workspace:** existing Application Menu directory, retained
 
@@ -18,9 +18,9 @@ A native rebuild of the categorized launcher experience from app-menu, compatibl
 
 ## Confirmed decisions
 
-On 2026-11-14 the user selected the native rebuild design and the name SK's App Menu. Detailed Architecture.md and Feasibility.md are proposed and awaiting approval. No implementation authorization is inferred from choosing the approach alone.
+On 2026-11-14 the user selected the native rebuild design and the name SK's App Menu. Architecture.md and Feasibility.md were explicitly approved by Siveesh on 2026-11-14 with instructions to proceed.
 
-## Proposed defaults
+## Approved defaults
 
 - SwiftUI management window plus AppKit native category menus.
 - macOS 27.0+ and Apple silicon; installed stable Xcode 27.2/Swift 6.4.2 in Swift 6 mode.

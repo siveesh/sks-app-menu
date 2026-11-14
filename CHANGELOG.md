@@ -19,3 +19,12 @@ All notable project changes are documented here.
 - Recorded user selection of native rebuild and proposed detailed architecture/feasibility.
 - Defined nested discovery, app identity, manual add, visibility/category persistence, recovery, and acceptance criteria.
 - Updated project overview, roadmap, QA plan, open issues, and verification/handoff records. No app implementation yet.
+
+## 1.0.0 (1) —2026-11-14
+
+- Built native SK's App Menu for macOS27+/Apple silicon with Swift6.
+- Added recursive vendor-folder discovery, manual Browse/Add, reversible hiding, custom/persistent category controls and missing-app Locate.
+- Added protected local settings, backups/recovery, serial saves and cancellation-safe scans.
+- Added app icons in category menus, compact labels/full tooltips, native shortcuts and full-height management layout.
+- Added Help/About, original layered icon, checked-in Xcode targets, tests and run/package tooling.
+-31 tests pass; Debug/Release build, actual vendor scan and exact-URL launch verified. Local ad-hoc/runtime DMG only; public signing/notarization not claimed.

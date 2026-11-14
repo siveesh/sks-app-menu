@@ -1,10 +1,11 @@
 # Open Issues
 
-| ID | Issue | Impact / proposed resolution | Decision needed by |
-| --- | --- | --- | --- |
-| D1 | Detailed design approval pending | User review of Architecture.md and Feasibility.md, including proposed macOS 27+ / Apple silicon / direct distribution defaults | Implementation |
-| R1 | macOS 27.0 runtime not tested | Development host/toolchain inspection is not 27.0 compatibility evidence | Compatibility claim |
-| R2 | Signing identity and notarization access unverified | Local build can precede credentials; distributable release cannot claim signed/notarized without evidence | Release |
-| R3 | Upstream source algorithm not inspected | Do not assert its root cause; no code imported | Any upstream reuse |
-| R4 | Repository licence and About asset rights | Owner selects public licence; inspect Relay references and any reused assets | Public release |
-| E1 | Default Python shim broken | Use /usr/bin/python3; project hook adapted to invoke system interpreter | Resolved workaround |
+| ID | Issue | Impact / next step |
+| --- | --- | --- |
+| R1 | macOS 27.0 runtime not tested | Target is27.0; actual build/test host27.2.1. Qualify earliest supported OS before broad compatibility claim. |
+| R2 | Local ad-hoc package only | Developer ID identity/notarization access not established; do not publish as a notarized public release. |
+| R3 | Manual accessibility/appearance qualification incomplete | Full VoiceOver, light-mode and repeated pointer/picker/Help/About QA remain. Native smoke+automated tests recorded separately. |
+| R4 | Public repository licence not selected | No upstream code/assets imported. Owner's Relay identity images reused; select public licence before publishing. |
+| E1 | Host tooling diagnostics | CoreSimulator mismatch, AppIntents extraction and autoShortcut logs; native macOS tests pass. hdiutil commands deprecated but successful. |
+
+Resolved: design approvals; recursive discovery; persistent preferences and recovery; static-core test linkage; stale Add/Locate scans; ambiguous Locate; worker overlap; management layout; icon/width refinement. Broken Python shim worked around with /usr/bin/python3. Strict verifier excludes ignored generated artifacts.

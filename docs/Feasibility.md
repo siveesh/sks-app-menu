@@ -1,12 +1,12 @@
 # SK's App Menu — Feasibility Recommendation
 
-Status: Proposed — awaiting user approval
+Status: Approved
 Decision owner: Siveesh
 Last reviewed: 2026-11-14
 
 ## Recommendation
 
-Proceed with a native Swift rebuild: SwiftUI management windows, an isolated AppKit NSStatusItem/NSMenu adapter, Foundation directory enumeration and Codable persistence, and NSWorkspace launches. No external packages or services are needed for the requested MVP. Use Xcode 27.2 and the installed Apple Swift 6.4.2 compiler in Swift 6 language mode. Recommend macOS 27.0+ and Apple silicon for the first release. This is a documented feasibility assessment, not a tested app or an approved implementation.
+Proceed with a native Swift rebuild: SwiftUI management windows, an isolated AppKit NSStatusItem/NSMenu adapter, Foundation directory enumeration and Codable persistence, and NSWorkspace launches. No external packages or services are needed for the requested MVP. Use Xcode 27.2 and the installed Apple Swift 6.4.2 compiler in Swift 6 language mode. Recommend macOS 27.0+ and Apple silicon for the first release. This is a documented feasibility assessment, not evidence of a tested app. Implementation approved by Siveesh on 2026-11-14.
 
 ## Evidence and current platform
 

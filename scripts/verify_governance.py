@@ -76,7 +76,10 @@ def main() -> int:
         if "status: approved" not in read(root, "docs/Feasibility.md").lower():
             errors.append("Implementation-or-later work requires docs/Feasibility.md to be marked Status: Approved.")
     if args.strict:
+        ignored = {".git", ".build", "DerivedData", "Build", "Release", "Temporary", "dist", ".superpowers"}
         for path in root.rglob("*"):
+            if any(part in ignored for part in path.relative_to(root).parts):
+                continue
             if path.is_file() and path.suffix in {".md", ".yml", ".yaml", ".json"} and "__" in path.read_text(encoding="utf-8"):
                 errors.append(f"Unresolved project marker: {path.relative_to(root)}")
         state_path = root / ".project-governance.json"
