@@ -16,7 +16,7 @@ Persistent Temporary/LauncherFixture.app verified by own bundle ID, unregistered
 
 ## Publication and Homebrew
 
-Prepared source repository siveesh/sks-app-menu, owner tap siveesh/homebrew-tap and release v1.3.0. Remote mutation/download/CI evidence is appended to Verification.md after execution. Cask has pinned final SHA/URL, arm64/macOS27 requirements, no zap/user-data deletion. Homebrew7 requires a real tap for style and scoped trust for loading this reviewed cask; style passes/no offenses and parsing passes. Do not infer install/Gatekeeper approval from those checks. Official inclusion currently lacks age/notability and clean-machine security qualification; no doomed upstream PR.
+Empty public repositories siveesh/sks-app-menu and siveesh/homebrew-tap created through owner browser session. Source/tag/release uploads are pending: CLI and connector deny writes and no accepted SSH key is available. Owner asked to grant the existing fine-grained CLI token Contents/Workflows write access only for these repositories. Prepared release v1.3.0 is unchanged. Remote mutation/download/CI evidence is appended to Verification.md after execution. Cask has pinned final SHA/URL, arm64/macOS27 requirements, no zap/user-data deletion. Homebrew7 requires a real tap for style and scoped trust for loading this reviewed cask; style passes/no offenses and parsing passes. Do not infer install/Gatekeeper approval from those checks. Official inclusion currently lacks age/notability and clean-machine security qualification; no doomed upstream PR.
 
 ## Documentation and constraints
 
