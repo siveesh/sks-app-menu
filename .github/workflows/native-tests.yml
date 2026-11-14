@@ -1,0 +1,20 @@
+name: Native macOS tests
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  native-tests:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Require macOS 27 SDK and runtime
+        shell: bash
+        run: |
+          test "$(sw_vers -productVersion | cut -d. -f1)" -ge 27
+          test "$(xcrun --sdk macosx --show-sdk-version | cut -d. -f1)" -ge 27
+      - name: Test app and core
+        run: ./scripts/test.sh

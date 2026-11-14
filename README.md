@@ -1,73 +1,79 @@
 # SK's App Menu
 
-Native macOS menu-bar and optional Dock application launcher with recursive application discovery, manual addition, reversible hiding, and persistent category overrides.
+<img src="Resources/Branding/AppIcon.png" width="128" height="128" alt="SK's App Menu icon">
 
-## Requirements
+A native macOS menu-bar and Dock application launcher. Find applications inside vendor subfolders, organize them into categories, and launch the exact installed copy you choose.
 
-macOS 27.0+ on Apple silicon. Development uses Xcode 27.2 / Apple Swift 6.4.2 in Swift 6 language mode. The development host runs macOS 27.2.1; macOS 27.0 runtime coverage remains a release qualification item.
+**Requires macOS 27.0+ and Apple silicon.** Built with Swift 6, SwiftUI and AppKit, with no third-party runtime dependencies.
 
-## Build and run
+## Features
 
-Open `SKsAppMenu.xcodeproj` and select the SKsAppMenu scheme, or run:
+- Recursive discovery in `/Applications`, `/System/Applications` and `~/Applications`, including Adobe and DaVinci vendor folders.
+- Native menu-bar categories with application icons and compact labels.
+- Optional categorized Dock grid with Compact, Comfortable and Spacious sizes, search and keyboard navigation.
+- Browse/Add apps elsewhere; hide/restore apps and change their categories persistently.
+- Right-click grid hiding; Uninstall-named apps hidden by default, with explicit restoration remembered.
+- iOS-on-Mac application classification, missing-app reconnection, local backups and protected recovery.
+- Original layered Liquid Glass icon, dark appearance support and a bundled user guide.
+
+## Download and install
+
+Download the DMG from [Releases](https://github.com/siveesh/sks-app-menu/releases), open it, drag **SK's App Menu.app** to **Applications**, eject the image and launch the installed copy. Click its menu-bar grid icon to get started. Choose **Show in Dock** for the optional grid window.
+
+**Release status:** the public DMG is Developer ID-signed by Siveesh Kodapully with Hardened Runtime, but **not notarized**. Notarization was explicitly deferred for this release. Gatekeeper may block a downloaded copy; do not disable Gatekeeper or strip quarantine to work around it. See [notarization setup](docs/Notarization.md) for the maintainer workflow.
+
+### Homebrew tap
+
+```bash
+brew tap siveesh/tap
+brew trust --cask siveesh/tap/sks-app-menu
+brew install --cask siveesh/tap/sks-app-menu
+```
+
+For Homebrew 7, review the cask before trusting this specific definition; this does not bypass Gatekeeper. Older Homebrew may not have the trust command.
+
+This is the project's own tap, not an official `homebrew/cask` listing. The cask has the same unnotarized-release limitation. [Homebrew support and eligibility](docs/Homebrew.md) explains validation results and upstream requirements.
+
+## User documentation
+
+Read the complete [Help.md](Help.md) for every window, menu, toolbar, shortcut and recovery workflow. The same guide is bundled with the app and disk image. In the app, use **Help → SK's App Menu Help**, menu-bar **Help**, or the management toolbar's Help button. The guide's **Contents** menu jumps between topics.
+
+[Installation and updates](INSTALL.md) · [Changelog](CHANGELOG.md) · [Report a problem](https://github.com/siveesh/sks-app-menu/issues)
+
+## Privacy and preferences
+
+No accounts, analytics, cloud synchronization or network service are used by the app. Its catalog stays in `~/Library/Application Support/com.siveesh.sksappmenu/`. Hiding and recategorizing modify only launcher preferences; installed application bundles are never edited or deleted. Normal app removal retains preferences.
+
+## Build and test
+
+Use Xcode 27+ with the macOS 27 SDK on an Apple silicon Mac running macOS 27+. The development verification host uses Xcode 27.2 / Swift 6.4.2 and macOS 27.2.1. The earliest supported runtime, macOS 27.0, still needs separate qualification.
 
 ```bash
 ./script/build_and_run.sh --verify
-```
-
-The script stops only the running SKsAppMenu process, builds Debug into DerivedData, and opens the app bundle. The Run button in Codex uses the same script. Options: --debug, --logs, --telemetry, --verify. The normal no-flag invocation builds and opens the app. `--telemetry` streams local process logs; there is no online analytics.
-
-The checked-in Xcode project needs no generator to build. To regenerate after adding source files, use the already-installed XcodeGen with `xcodegen generate` and keep `project.yml` in sync. No third-party runtime packages are used.
-
-## Tests
-
-```bash
-swift test
 ./scripts/test.sh
-/usr/bin/python3 scripts/verify_governance.py --strict --phase documentation
+swift test
+python3 scripts/verify_governance.py --strict --phase documentation
 ```
 
-SwiftPM covers MenuCore. Xcode additionally runs hosted app-model tests; its scheme sets an isolated `Temporary/XcodeTestStore` directory. Do not run both Xcode test/build commands against the same DerivedData directory concurrently. The default Python shim on this development machine is broken; the governance hook explicitly uses `/usr/bin/python3`.
+The checked-in Xcode project builds without a generator. If you change the project specification or add files, regenerate with `xcodegen generate` and commit both `project.yml` and the project. Test hosts use an isolated catalog; never replace normal preferences with QA data. Do not run simultaneous Xcode commands against the same DerivedData directory. Build products, logs, DMGs and local catalogs are ignored by Git.
 
-## Use
+For an isolated manual run, pass `--store-directory /absolute/test/directory` after `--verify`. `--manage` explicitly opens management for testing; ordinary startup leaves it closed. These options are for development and are not needed by users.
 
-Click the grid icon in the menu bar. Apps are grouped by category, with names and icons. Choose Manage Applications to browse/search, toggle visibility, pick another category, or locate a missing app. Add Application opens the standard picker. Custom categories can be created, renamed, and deleted from Categories. Refresh scans nested ordinary folders under /Applications, /System/Applications and ~/Applications. Helper apps inside app bundles and linked directories are excluded. Manual selection handles apps elsewhere.
-
-[Detailed Help](docs/Help.md) is also bundled and accessible from the app's Help menu. About uses the existing SK developer identity assets and an original layered app icon.
-
-Choose **Show in Dock** to enable the categorized icon grid. **Open Launcher…** also opens it without a Dock icon. Compact, Comfortable, and Spacious change icon, text, and grid tile sizes; your choice is saved. The window shares search, categories, visibility, and exact-copy launching with the menu. Clicking the Dock icon restores the same window. The original Prism Launcher icon uses native Icon Composer layers and supports Default, Dark, and Mono appearances.
-
-**Hide Refresh Warnings** in the menu or Manage Applications suppresses scan notices in both launchers and remembers your choice. Details remain available in Manage Applications; clear the option to restore notices. The launcher banner also has a Hide button.
-
-Right-click a grid icon → **Hide Application** to hide it from both launchers. Restore it in Manage Applications. Names containing **Uninstall** default to hidden; explicit restoration is saved, including across scans/restarts. Existing matching entries adopt this default on upgrade.
-
-The purple control sometimes shown in the title bar is macOS window-sharing UI during capture, including visual QA. Standard native window controls are retained. Cmd-W/Cmd-M close/minimize the window.
-
-## Settings and recovery
-
-Settings live in `~/Library/Application Support/com.siveesh.sksappmenu/catalog.json`; the previous valid state is in `catalog-backup.json`. Hiding changes only this launcher. Installed bundles are never edited or removed. Unknown/missing automatic categories use Other until overridden. Duplicate installed copies remain independent.
-
-A damaged/newer catalog is protected in read-only mode. Manage Applications offers Restore Backup or an explicit Archive and Reset action. Save failures remain visible with retry. Quit waits for pending saves, then asks before discarding unsaved work if necessary.
-
-For isolated QA, launch the app with `--manage --store-directory /absolute/test/directory` or set `SK_APP_MENU_STORE_DIRECTORY`. `--manage` opens the management window after startup. Normal startup stays in the menu bar unless Show in Dock was enabled; then the launcher opens. Manage Applications never opens automatically. Closing a window does not quit the app.
-
-## Local packaging
+## Release workflow
 
 ```bash
-SK_APP_MENU_SIGNING_IDENTITY="Developer ID Application: Your Name (TEAMID)" ./scripts/package.sh 1.2.1-developer-id
+SK_APP_MENU_SIGNING_IDENTITY="Developer ID Application: Name (TEAMID)" \
+  ./scripts/package.sh 1.3.0-arm64
 ```
 
-Creates a Release-configuration DMG in Release with the app, Applications link and installation notes. It refuses to overwrite an existing same-version artifact. Without SK_APP_MENU_SIGNING_IDENTITY the script produces an ad-hoc local build. With the explicitly supplied Developer ID it signs both the app (Hardened Runtime and secure timestamp) and DMG. Version1.2.0 was signed with the owner's Developer ID Application certificate after explicit authorization. **Neither mode performs notarization.** Gatekeeper may block an ad-hoc download; do not disable system security. Public distribution requires signing/notarization and a repository licence decision.
+The script creates a signed DMG containing the app, Applications link, user guide, installation instructions and license. It refuses to overwrite an existing artifact and does not notarize. Without a signing identity it produces an ad-hoc local build, which is unsuitable as a normal public-download release. See [release instructions](docs/Distribution.md) and the separate [notarization guide](docs/Notarization.md).
 
-## Repository and records
+## Repository layout
 
-Sources/Core contains values, discovery, classification, reconciliation and persistence. Sources/App contains the MainActor model, SwiftUI windows and isolated AppKit menu bridge. Resources contains Info.plist, user help, About assets and layered AppIcon.icon. Tests covers the core and app model. scripts/ and script/ hold tooling.
+`Sources/Core` holds discovery, classification, identity, visibility and persistence. `Sources/App` holds the model, native UI and menu/window bridges. `Tests` covers core and hosted app behavior. `Resources` contains native assets; the root `Help.md` is the canonical bundled guide. `Casks` holds the release cask mirrored to the owner tap. `docs` contains user-support and maintainer records, while `.github` holds repository workflows and issue guidance.
 
-[Architecture](docs/Architecture.md) and [Feasibility](docs/Feasibility.md) were approved by Siveesh on 2026-11-14. [Verification](docs/Verification.md), [QA](docs/QA.md), [Open issues](docs/OpenIssues.md), and [Handoff](docs/SessionHandoff.md) record actual evidence and remaining limitations. AGENTS.md is authoritative.
+## Contributing and license
 
-This is an independent rebuild using https://github.com/barseghyanartur/app-menu/ as a behavioral reference. No upstream code or assets were imported. No licence to third-party material is implied. Developer identity images were reused from the owner's Relay project; public repository licensing is not yet selected.
+Contributions are welcome; start with [CONTRIBUTING.md](CONTRIBUTING.md). For sensitive reports, use [SECURITY.md](SECURITY.md).
 
-Version1.0.1 explicitly preserves application icons in macOS27 menus. Normal launch opens no utility windows; Manage Applications is opened from the menu when needed, and its window is not restored from the previous session.
-
-Version1.0.2 recognizes installed iOS-on-Mac wrappers and flat iOS app bundles in iOS Apps. Genuine inaccessible/invalid bundles still warn. Existing custom categories and per-app overrides are preserved.
-
-Codex test relaunches explicitly target the built application using open -a, wait for the previous process to stop and verify the executable before launch. Native UI QA uses an already-running signed copy at a stable path to avoid launching through ambiguous cached bundle registrations. Debug/test hosts remain locally signed; the packaged app is Developer ID signed.
+Copyright © 2026 Siveesh Kodapully. Licensed under the [MIT License](LICENSE). This is an independent native rebuild inspired by [app-menu](https://github.com/barseghyanartur/app-menu/); no upstream code or assets were imported. The developer identity assets belong to the project owner.

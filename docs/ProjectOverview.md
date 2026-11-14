@@ -44,3 +44,5 @@ Refresh warning visibility is user-controlled in1.1.1: saved Hide Refresh Warnin
 1.2.0 replaces Dock rows with a responsive icon grid; shared categories/search and saved three-size preference retained. User explicitly authorized Developer ID signing, applied to app and DMG with Hardened Runtime/secure timestamp. Notarization remains pending. macOS file-not-found dialog during Codex relaunches investigated without speculative scanner changes; improved explicit test target and stable signed QA launch path.
 
 1.2.1 adds native grid right-click Hide Application and default hiding for display names containing Uninstall. Explicit restoration remains durable; native window controls are unchanged, with macOS sharing indicators documented.
+
+Public-release request1.3.0: owner selected MIT and authorized GitHub source/DMG publication plus cask/tap; owner explicitly deferred notarization and requested step-by-step setup instead. Canonical root Help.md now covers every UI/workflow, bundled and included in DMG. Generated SK Launch Test removed, old artifacts cleaned.

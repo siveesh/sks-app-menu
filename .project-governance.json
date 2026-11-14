@@ -9,9 +9,12 @@
     "phase": "documentation",
     "approval_status": "approved",
     "approved": "2026-11-14",
-    "milestone": "1.2.1-developer-id",
+    "milestone": "1.3.0-public",
     "dock_design_approved": "2026-11-14",
-    "completed_feature": "grid-context-hiding-and-uninstaller-defaults",
-    "signing_choice": "Developer ID explicitly authorized 2026-11-14"
+    "completed_feature": "public-release-help-homebrew",
+    "signing_choice": "Developer ID explicitly authorized 2026-11-14",
+    "publication_authorized": "2026-11-14",
+    "public_license": "MIT",
+    "notarization": "deferred by explicit user instruction"
   }
 }

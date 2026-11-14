@@ -1,31 +1,27 @@
 # Session Handoff
 
-Updated2026-11-14. SK's App Menu1.2.1(9), feature/native-rebuild; no merge/push. Direct user request: grid right-click hide, default hide Uninstall names, investigate replaced window buttons.
+Updated2026-11-14. SK's App Menu1.3.0(10). Owner authorized GitHub source/DMG publication, MIT license, owner Homebrew tap/cask and stale-artifact cleanup. Notarization explicitly deferred; detailed local setup guide provided, no credentials created or submitted.
 
-## Summary and files
+## Implemented and verified
 
-Grid contextMenu Hide Application calls shared guarded CatalogModel.setHidden; read-only catalog disables action. AppRecord now tracks visibilityIsUserSet, defaults name-matched uninstallers hidden, strictly decodes old/new records and marks explicit edits. Reconciler and Locate refresh automatic defaults when names change. Shared hiding affects menu and grid; Manage restores apps persistently. Existing hidden legacy choices remain explicit; old visible Uninstall matches intentionally adopt new default. Added Core/model regressions, Help/README/version/project/governance updates. No schema bump, new package dependency or entitlement.
+Root Help.md is the comprehensive canonical guide, bundled into the app and DMG. Existing Help menu/status-menu/toolbar routes reused, Contents navigation and native inline Markdown/code styles added.71 tests pass (42core/store,29app), including Help menu/resource integration. Result Test-SKsAppMenu-2026.11.14_1-44-50-+0300.xcresult. Signed native Help window/content/Contents control observed; repeated pointer activation affected by external state, so no complete visual Contents-jump claim. Debug/Release builds pass; guide bytes root/app/DMG equal, install/license/readme included and no test plugins.
 
-## Window-control finding
+## Current app and artifact
 
-User confirmed purple screen-sharing icon. Native accessibility identifies Window sharing; macOS owns capture/sharing presentation while visual QA inspects windows. Standard SwiftUI Window chrome remains. No app replacement/suppression or privacy setting change. Cmd-W closes, Cmd-M minimizes; documented in Help. Apple system-capture reference in Architecture/Feasibility. No source fix required for this confirmed system behavior.
+Build/Testing/SK's App Menu.app installed from readonly mounted final DMG, version1.3.0/build10, normal no-argument launch observed. Release/SKsAppMenu-1.3.0-arm64.dmg checksum VALID, SHA2567fba6495ce0ef214b2ec40dd4af69382713e3f8feb163ad35bb1622837c6decd. App/DMG actual Developer ID Siveesh Kodapully/MURZTM33SD, timestamps and strict/deep verification pass. NOT notarized; clean default-security first-download qualification not established. All149 normal IDs/visibility/categories and appearance preferences retained; no SK Launch Test catalog entry.
 
-## Build and test evidence
+## Cleanup
 
-Debug test build and Release package succeed. Final70 Xcode tests (42core/store,28app), zero failures, TEST SUCCEEDED. Result Test-SKsAppMenu-2026.11.14_1-24-20-+0300.xcresult; Build/Evidence/hiding-final-tests.log. RED behavior failures logged before implementation. Tests cover name defaults, migration, strict marker type, automatic encode/rename and explicit restore through real-store scan/restart. Native signed isolated right-click action removed controlled fixture from grid without launching; JSON retained hidden=true/explicit ownership. Fixture timestamp unchanged. Broader manual VoiceOver/light/earliest-OS qualification remains open.
+Persistent Temporary/LauncherFixture.app verified by own bundle ID, unregistered and removed. Old QA catalogs/proof/source removed. After final verification32 obsolete generated items, including all superseded DMGs and prior/QA app copies, removed (~71.9MiB). Current app/DMG/source/normal catalog/backups/evidence retained; no unrelated apps/media/security settings changed. Native automated tests still create transient Controlled fixtures with teardown; they are not shipped. Raw cleanup/signature/test evidence stays ignored in Build/Evidence.
 
-## Installed app and package
+## Publication and Homebrew
 
-Build/Testing/SK's App Menu.app copied from Release/SKsAppMenu-1.2.1-developer-id.dmg; checksum VALID, strict app/DMG signature and app deep verification passed, read-only image detached. Installed1.2.1/9 process25569 observed at exact executable, no launch args. App+DMG Developer ID signed Siveesh Kodapully/MURZTM33SD, secure timestamps, app Hardened Runtime. Not notarized. Exact SHA256/evidence in Verification.md.
+Prepared source repository siveesh/sks-app-menu, owner tap siveesh/homebrew-tap and release v1.3.0. Remote mutation/download/CI evidence is appended to Verification.md after execution. Cask has pinned final SHA/URL, arm64/macOS27 requirements, no zap/user-data deletion. Homebrew7 requires a real tap for style and scoped trust for loading this reviewed cask; style passes/no offenses and parsing passes. Do not infer install/Gatekeeper approval from those checks. Official inclusion currently lacks age/notability and clean-machine security qualification; no doomed upstream PR.
 
-## Data and cleanup
+## Documentation and constraints
 
-149 prior UUIDs/categories and all presentation settings retained. Only intentional visible→hidden migration for three Uninstall-named entries; existing hidden copy retained. No QA fixture transferred. Prior test build preserved Build/Previous-1.2.0-build8. Package staging removed by trap/mount detached. Current/prior artifacts, signed Build/HidingQA, isolated store and diagnostic evidence intentionally retained. No installed app or global privacy/Dock/appearance edits. Generated artifacts ignored by Git.
-
-## Documentation, diagnostics and next step
-
-Five phase documents/Help/README/Changelog/Verification/Handoff updated. Global actual lesson: identify OS capture indicators before interpreting them as app-chrome regressions. Existing host-test diagnostics/hdiutil deprecation nonblocking; use /usr/bin/python3 because default shim is broken. Remaining notarization/licence, full VoiceOver/light/macOS27.0 and earlier Codex launch-dialog observation (exact original missing URL unconfirmed, no recent recurrence). Older app versions may drop new ownership metadata on rewrite; use current build for durable restoration. Next: user acceptance; no pending design approval.
+MIT/README/INSTALL/CONTRIBUTING/SECURITY/user guide, distribution/Homebrew/notarization guides, issue template, governance/manual-native workflows and current phase records updated. Actual lessons recorded: current Homebrew tap/trust workflow and assessment provenance. No runtime dependency, entitlement or app network service added. Remaining full VoiceOver/light/macOS27.0, notarization and official Homebrew eligibility. Earlier test-relaunch dialog's exact missing URL remains unconfirmed; stable signed launch checks did not recur.
 
 ## Commands
 
-`./script/build_and_run.sh --verify` canonical Debug, --store-directory for isolated QA. `./scripts/test.sh` full suite; `swift test` core. `SK_APP_MENU_SIGNING_IDENTITY="Developer ID Application: Name (TEAMID)" ./scripts/package.sh <new-artifact-version>` signs without notarizing and refuses overwrite. Avoid simultaneous Xcode commands on DerivedData; never copy QA store into normal storage. Complete native inspection sessions when finished so OS capture presentation can end.
+./script/build_and_run.sh --verify for Debug; ./scripts/test.sh full suite; swift test core. Use /usr/bin/python3 for local governance (default shim broken). SK_APP_MENU_SIGNING_IDENTITY="Developer ID Application: Name (TEAMID)" ./scripts/package.sh <new-version>-arm64 signs/packages without notarizing and refuses overwrite. Do not reuse published artifact versions or copy QA catalogs into normal storage. Follow docs/Notarization.md for future credential setup/submission/stapling. No passwords/keys in chat/Git.

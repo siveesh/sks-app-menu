@@ -1,6 +1,6 @@
 # QA and Performance
 
-Current baseline:1.2.1,70 automated tests pass.
+Current baseline:1.3.0,71 automated tests pass.
 
 Status: Automated QA passed; native smoke assessment complete with documented manual follow-ups.
 Reviewed: 2026-11-14. See Verification.md for commands, actual results and artifact paths.
@@ -76,3 +76,9 @@ Reviewed legacy decoder/persistence compatibility, user-override durability, aut
 Final70 tests pass (42core/store,28app): name cases/default versus explicit choice, real legacy false/true migration, automatic encoding/rename, strict malformed marker and real-store model restore/scan/restart. Existing recovery/scan race/menu/lifecycle tests pass. Native signed package right-clicked controlled SK Launch Test tile → Hide Application → zero results; raw record remained with hidden=true/visibilityIsUserSet=true. Fixture launch timestamp stayed13:07:37, proving this context action did not execute it. No real user app launched. Default hidden uninstallers retained in catalog.
 
 User confirmed purple icon. Earlier/current AX expose Window sharing and native window styles remain standard; documented system capture presentation without attempting to hide privacy UI. Full accessibility/light appearance/earliest-OS qualifications remain as before; no performance claim added. Signed final package and intended-only upgrade migration verified in Verification.md.
+
+## 1.3.0 release/guide QA
+
+Inspected resource and command routes, guide consistency, credential/artifact exclusion, compatibility/persistence, package contents and repository/tap configuration.71 tests pass (42core/store,29app), including real Help menu action→help scene relay and actual app-bundle Markdown resource. No prose-mirroring tests added. Native signed isolated app displayed Help window containing full guide and Contents control; external UI state changes prevented a reliable Contents-jump visual round-trip, so that is not claimed. App/app-bundle/DMG guide bytes compare identical; INSTALL/LICENSE present and no test plugins.
+
+Final app/DMG strict signature/checksum and installed1.3.0/10 launch verified;149 normal records/preferences retain choices and no test record. Persistent fixture unregister/delete and stale generated artifact cleanup verified separately. No normal user data or global privacy/security settings changed. Current release has no stapled notarization ticket; clean default-security download/launch qualification is not claimed. Owner explicitly deferred notarization. Homebrew7 cask style passes in a real tap; parsing required scoped trust of the reviewed definition. Public fetch/livecheck/audit results are recorded after publication. Normal native/accessibility/earliest-runtime limits remain.

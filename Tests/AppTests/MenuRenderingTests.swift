@@ -4,6 +4,24 @@ import MenuCore
 @testable import SKsAppMenu
 
 @MainActor final class MenuRenderingTests: XCTestCase {
+    func testHelpCommandOpensTheBundledGuide() async throws {
+        let directory = FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString)
+        defer { try? FileManager.default.removeItem(at: directory) }
+        let model = CatalogModel(store: PreferencesStore(directory: directory), roots: [], scanner: { _, _, _ in ScanResult() })
+        await model.start()
+        model.stop()
+        var opened: [String] = []
+        let relay = WindowActionRelay(activate: {})
+        relay.openWindow = { opened.append($0) }
+        let menu = MenuController(model: model, windows: relay)
+        let help = try XCTUnwrap(menu.menu.item(withTitle: "Help"))
+        NSApp.sendAction(try XCTUnwrap(help.action), to: help.target, from: help)
+        XCTAssertEqual(opened, ["help"])
+        let url = try XCTUnwrap(Bundle.main.url(forResource: "Help", withExtension: "md"))
+        XCTAssertFalse(try String(contentsOf: url, encoding: .utf8).isEmpty)
+        _ = await model.finishSaving()
+    }
+
     func testHidingRefreshWarningsKeepsDiagnosticsAndSurvivesRestartUntilReenabled() async throws {
         let directory = FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString)
         defer { try? FileManager.default.removeItem(at: directory) }

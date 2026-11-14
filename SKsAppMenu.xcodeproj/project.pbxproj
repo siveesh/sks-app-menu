@@ -17,13 +17,13 @@
 		271CF9484D50BABB7184A9D8 /* AppIcon.icon in Resources */ = {isa = PBXBuildFile; fileRef = BF7C209EC264D3746319CC4C /* AppIcon.icon */; };
 		28855A1E2472D876361E854B /* CategoryResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CE26F2691D050ADF8CB092 /* CategoryResolver.swift */; };
 		32963E0B1197554B4109E449 /* LauncherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250DC44227CCEEF0334A197C /* LauncherView.swift */; };
+		4A88B899D4819D06F6728CD1 /* Help.md in Resources */ = {isa = PBXBuildFile; fileRef = C68401E7C572C7E8205D8C31 /* Help.md */; };
 		4BF4A5EB460922FDBF6FFFB6 /* libMenuCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 953AAC8B7D06B8B5C992137E /* libMenuCore.a */; };
 		4EF6A2D1C99D4A0822949712 /* CoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5946BF13992E84EDDB9B75 /* CoreTests.swift */; };
 		5B85515BA7CC13B0537A89AC /* MenuRenderingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F2D7144E36341676371DC3 /* MenuRenderingTests.swift */; };
 		5DE4A9BC34B9F52E78A6E7AF /* IOSDiscoveryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D705CDA7AA63D632CC6060 /* IOSDiscoveryTests.swift */; };
 		63826FFFF4E54E9D058AECEF /* CatalogTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A109711407EC4084DE15EF3 /* CatalogTypes.swift */; };
 		6FB013C6B9D8451B849757D7 /* CatalogReconciler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19A99F9E833566EC2C8B64F /* CatalogReconciler.swift */; };
-		739D524059E653958E4DB8C4 /* Help.md in Resources */ = {isa = PBXBuildFile; fileRef = EDA16C8FEEF225C3CC0BC7A6 /* Help.md */; };
 		777EB9E53D9E1706E5FE505B /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8572116AB2738C69B90E7EF2 /* AboutView.swift */; };
 		7BEBBEB8E4FDB600A895FCE7 /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C378D3C5993625B5EC2AB642 /* HelpView.swift */; };
 		8310E2400FDFE983E5E4E867 /* PresentationPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF4A5894C61BD27324148A5 /* PresentationPreferences.swift */; };
@@ -103,11 +103,11 @@
 		B3F0E0829E5D2A9EE24EC108 /* CatalogModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogModelTests.swift; sourceTree = "<group>"; };
 		BF7C209EC264D3746319CC4C /* AppIcon.icon */ = {isa = PBXFileReference; lastKnownFileType = wrapper.icon; path = AppIcon.icon; sourceTree = "<group>"; };
 		C378D3C5993625B5EC2AB642 /* HelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpView.swift; sourceTree = "<group>"; };
+		C68401E7C572C7E8205D8C31 /* Help.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Help.md; sourceTree = "<group>"; };
 		CE4279455DA16C0724887822 /* VisibilityDefaultsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisibilityDefaultsTests.swift; sourceTree = "<group>"; };
 		D6612D5CC114232FA9A6E593 /* LauncherGridTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LauncherGridTests.swift; sourceTree = "<group>"; };
 		DE3B76C36F50C51AB5912B3B /* SKsAppMenu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SKsAppMenu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E33F92809F15C27B274F8FBB /* CategoryManagementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryManagementView.swift; sourceTree = "<group>"; };
-		EDA16C8FEEF225C3CC0BC7A6 /* Help.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Help.md; sourceTree = "<group>"; };
 		F1F33E0541ED920D1C667F7C /* CatalogModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -149,7 +149,6 @@
 			children = (
 				BF7C209EC264D3746319CC4C /* AppIcon.icon */,
 				063D1E80ACAE67BFCECB7C71 /* Assets.xcassets */,
-				EDA16C8FEEF225C3CC0BC7A6 /* Help.md */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -215,6 +214,7 @@
 		DDCB6C29692909979F49E79D = {
 			isa = PBXGroup;
 			children = (
+				C68401E7C572C7E8205D8C31 /* Help.md */,
 				477E2369311B4F0F44487B9E /* App */,
 				4068D35D6ADD976682DEC58B /* AppTests */,
 				C8A2B607579CE7E7D29FF28D /* Core */,
@@ -359,7 +359,7 @@
 			files = (
 				271CF9484D50BABB7184A9D8 /* AppIcon.icon in Resources */,
 				10D4E717AE2BD00A9AE9B76C /* Assets.xcassets in Resources */,
-				739D524059E653958E4DB8C4 /* Help.md in Resources */,
+				4A88B899D4819D06F6728CD1 /* Help.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -558,7 +558,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 10;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -573,7 +573,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 27.0;
-				MARKETING_VERSION = 1.2.1;
+				MARKETING_VERSION = 1.3.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -638,7 +638,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 10;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -659,7 +659,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 27.0;
-				MARKETING_VERSION = 1.2.1;
+				MARKETING_VERSION = 1.3.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;

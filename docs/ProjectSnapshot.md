@@ -1,19 +1,11 @@
 # Project Snapshot
 
-- **Date:**2026-11-14
-- **Product:** SK's App Menu1.2.1(9), com.siveesh.sksappmenu
-- **Branch:** feature/native-rebuild; no merge/push
-- **Approval:** Native rebuild and Dock architecture/feasibility explicitly approved.
-- **Phase:** Local milestone complete; automated/native smoke QA and documentation complete.
-- **Build/test:** Debug/Release built;70 Xcode tests pass (42core/store,28app). Local DMG checksum/signature/install/launch verified.
-- **Current artifact:** Build/Testing/SK's App Menu.app; designated local test installation.
+- Date:2026-11-14. Product SK's App Menu1.3.0(10), com.siveesh.sksappmenu.
+- Source/publication: owner-authorized GitHub project siveesh/sks-app-menu, MIT license; main is the publication branch. Earlier feature history is retained.
+- Local implementation/QA complete:71 Xcode tests pass (42core/store,29app), Debug/Release build, native Help window, signed DMG and installed launch verified.
+- Current local app: Build/Testing/SK's App Menu.app. Current DMG: Release/SKsAppMenu-1.3.0-arm64.dmg, SHA2567fba6495ce0ef214b2ec40dd4af69382713e3f8feb163ad35bb1622837c6decd.
+- Developer ID app/DMG signatures and timestamps verified, teamMURZTM33SD. Notarization explicitly deferred by owner; clean default-security download/launch qualification is not claimed.
 
-Optional same-process Dock launcher uses shared catalog, categorized sidebar, responsive icon grid, search and exact-copy launch. Compact/Comfortable/Spacious are saved; default Dock off and Comfortable. Management opens only when requested. Original Prism Launcher layered Icon Composer asset supports Default/Dark/Mono with native glass.
+Root Help.md is the canonical complete user guide copied into the app and DMG, with INSTALL.md and MIT license beside the app. Existing Help entry points open it; native Contents navigation and Markdown/code styles added. Source has contributor/security guidance, versioned cask and repository workflows. SK Launch Test fixture was unregistered/removed; stale QA catalogs/builds and all superseded DMGs cleaned. Normal149 catalog identities, hidden/category preferences and appearance retained; no test entry in normal catalog.
 
-Recursive vendor discovery, manual add, hide/restore, category overrides and iOS Apps remain. Existing user settings must stay intact; isolated DockRuntimeQA catalog contains a disposable fixture and must never replace normal preferences. Remaining public/accessibility/earliest-OS qualification is in OpenIssues.md. Current evidence and handoff supersede older milestone notes.
-
-Latest update: persistent Hide Refresh Warnings control in menu/Manage and launcher Hide button. Older catalogs default to showing warnings. Raw management details and important errors stay available. See Verification.md for1.1.1 package/deployment evidence.
-
-Current package Release/SKsAppMenu-1.2.1-developer-id.dmg and installed test app are Developer ID signed by Siveesh Kodapully (MURZTM33SD), secure timestamp, runtime; not notarized. Three grid densities visually verified through isolated stores. Startup test-dialog exact cause unconfirmed; signed stable-path launches did not reproduce it. Previous1.1.1 app retained.
-
-Latest: right-click grid hide verified natively; Uninstall names default hidden, explicit user restore saved. Upgrade changed only three previously visible uninstaller entries;149 IDs/categories and presentation settings retained. Purple titlebar capsule confirmed as macOS Window sharing during capture; no app chrome/privacy changes.
+Owner tap siveesh/homebrew-tap is prepared; cask style and parsing pass on Homebrew7 after trusting only the reviewed cask. Remote publication/download/livecheck/audit evidence is appended to Verification.md after execution. Official Homebrew inclusion is deferred under current age/notability and release-security criteria. Remaining full VoiceOver/light/macOS27.0 qualification unchanged.

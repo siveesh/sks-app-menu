@@ -1,16 +1,14 @@
-# Local Build / Public Release Checklist
+# Release checklist —1.3.0
 
-- [x] Approved scope and version1.0.0(1).
-- [x] Debug/Release compile and link,31 automated tests.
-- [x] Independent review Important findings addressed with regressions.
-- [x] Privacy/local persistence and recovery reviewed.
-- [x] Original layered icon plus flattened export; bundled Help/About resources.
-- [x] Local DMG created, checksum verified, mounted/copied/detached.
-- [x] Packaged app ad-hoc signature verified with Hardened Runtime flag.
-- [x] Local test app launched from Build/Testing; original launcher untouched.
-- [x] Current evidence, docs, changelog, handoff and lessons recorded.
-- [ ] Full manual accessibility/appearance and earliest-OS qualification.
-- [ ] Owner public licence decision.
-- [ ] Developer ID signing and Apple notarization before public distribution.
+- [x] Public source/DMG and owner cask/tap explicitly authorized; MIT selected.
+- [x] Detailed canonical Help.md, all user UI/workflows and native Help entry points.
+- [x]71 tests pass; Release build/signature/checksum and installed launch verified.
+- [x] Help bytes match root/app/DMG; installation instructions/license in DMG.
+- [x] Normal preferences retained, no test entry; persistent fixture and stale artifacts cleaned.
+- [x] Developer ID app/DMG authority and timestamps verified.
+- [x] Source/tap configuration and common secret-pattern review; generated data ignored.
+- [ ] Notarization: explicitly deferred by owner; setup guide provided, no claim of clean-machine Gatekeeper qualification.
+- [ ] Full VoiceOver/light/earliest macOS27.0 runtime qualification.
+- [ ] Official Homebrew listing: current age/notability/security qualification not established; owner tap route provided.
 
-This checklist does not authorize or claim a public release. Local artifact remains in Release/; built products and raw logs are ignored.
+GitHub publication and remote validation are documented in Verification.md after execution. Cask syntax/style/download checks do not establish notarization or upstream acceptance.

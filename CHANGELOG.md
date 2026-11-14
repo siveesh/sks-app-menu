@@ -80,3 +80,12 @@ All notable project changes are documented here.
 - Add backward-compatible per-app visibility ownership marker without changing schema1; strict wrong-type decoding protects saved data.
 - Document macOS purple window-sharing indicator during capture; retain native window controls and privacy presentation.
 -70 tests pass (42core/store,28app); Developer ID signed package, notarization still separate.
+
+## 1.3.0 (10) —2026-11-14
+
+- Publish the native launcher source under owner-selected MIT license and prepare the first GitHub release.
+- Add a comprehensive canonical Help.md covering installation, every UI surface, shortcuts, app discovery, visibility/categories, Dock grid, warnings and recovery. Bundle the same guide and wire existing Help entry points; add readable inline Markdown/code and Contents navigation.
+- Include Help.md, INSTALL.md, LICENSE and Read Me alongside the app in the signed DMG.
+- Remove the persistent SK Launch Test fixture/registration and stale QA stores; clean superseded build/DMG artifacts after validating the current release.
+- Add owner Homebrew tap/cask with pinned version/checksum and platform requirements, contributor/security guidance and repository workflows.
+-71 tests pass. Developer ID-signed app/DMG; notarization explicitly deferred by owner, with step-by-step setup guide. Official Homebrew listing remains subject to eligibility and Gatekeeper qualification.

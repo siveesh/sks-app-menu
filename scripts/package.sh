@@ -2,7 +2,7 @@
 # Explicit Developer ID signing is supported; notarization is a separate workflow.
 set -euo pipefail
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-VERSION="${1:-1.0.0-local}"
+VERSION="${1:-1.3.0-arm64}"
 SIGNING_IDENTITY="${SK_APP_MENU_SIGNING_IDENTITY:--}"
 case "$VERSION" in *[!a-zA-Z0-9._-]*|'') echo 'Invalid artifact version' >&2; exit 2;; esac
 OUT="$ROOT_DIR/Release/SKsAppMenu-$VERSION.dmg"
@@ -23,6 +23,7 @@ fi
 codesign --verify --strict "$APP"
 codesign --display --verbose=2 "$APP"
 ln -s /Applications "$STAGE/Applications"
+cp "$ROOT_DIR/Help.md" "$ROOT_DIR/INSTALL.md" "$ROOT_DIR/LICENSE" "$STAGE/"
 cat > "$STAGE/Read Me.txt" <<TEXT
 SK's App Menu
 
@@ -31,7 +32,11 @@ Drag SK's App Menu.app to Applications, then open it. Choose Show in Dock or Ope
 
 $SIGNING_NOTE macOS may prevent opening an unnotarized download under Gatekeeper. Do not disable system security. Public distribution requires Apple notarization.
 
-Settings are stored in ~/Library/Application Support/com.siveesh.sksappmenu/catalog.json. Hiding or recategorizing changes only this launcher's preferences. Help is available in the menu. Quit via the menu before moving or removing the app.
+Read INSTALL.md for installation, updates and removal. Help.md explains all UI and workflows; the same guide is available from Help > SK's App Menu Help in the app. LICENSE contains the MIT license.
+
+Settings are stored in ~/Library/Application Support/com.siveesh.sksappmenu/catalog.json. Hiding or recategorizing changes only this launcher's preferences. Quit via the menu before moving or removing the app.
+
+Project and releases: https://github.com/siveesh/sks-app-menu
 TEXT
 hdiutil create -volname "SK's App Menu" -srcfolder "$STAGE" -format UDZO "$OUT"
 if [[ "$SIGNING_IDENTITY" != '-' ]]; then
