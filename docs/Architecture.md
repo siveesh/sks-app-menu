@@ -103,3 +103,7 @@ Sources: https://developer.apple.com/documentation/appkit/nsmenuitem/preferredim
 ## Dock launcher addendum — Proposed, approval pending
 
 The user selected a categorized launcher window. See [Dock launcher design](superpowers/specs/2026-11-14-dock-launcher-design.md) for the reviewable behavior, sizes, lifecycle and persistence contract. Proposed optional same-app Dock visibility (default off), shared catalog/preferences, dedicated singleton launcher and Compact/Comfortable/Spacious layouts. Existing1.0.1 architecture remains approved; this extension is not approved for implementation yet.
+
+## Authorized iOS discovery correction —2026-11-14
+
+User requested confirmed iOS-on-Mac bundles in iOS Apps rather than warning entries. Resolve flat iOS metadata/executables and Wrapper/WrappedBundle payload metadata, require positive iOS markers and APPL/executable validation, enforce payload containment, keep outer installed URL for launch/icon/identity, and preserve manual category/visibility overrides. Missing/unreadable/ambiguous/non-iOS wrappers continue to warn. This scanner compatibility correction is authorized by the direct user request; Dock design approval remains separate/pending.

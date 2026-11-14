@@ -36,3 +36,5 @@ User preferences survive refresh/restart; bundles remain read-only; traversal st
 ## Requested next feature
 
 Optional Dock presence with categorized launcher window (user-selected approach), shared catalog and Compact/Comfortable/Spacious layouts. Detailed design proposed for approval; no production changes yet.
+
+Confirmed iOS-on-Mac application wrappers are supported and classified in iOS Apps, while retaining outer launch URLs and existing user overrides.

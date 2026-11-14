@@ -96,7 +96,9 @@ public actor PreferencesStore {
         guard doc.apps.count <= 50_000, doc.categories.count <= 1_024 else { throw PreferencesError.oversized }
         var ids = Set<String>(), names = Set<String>()
         let builtIn = Set(CategoryResolver.builtIn.map(\.id))
-        let builtInNames = Set(CategoryResolver.builtIn.map { $0.name.folding(options: [.caseInsensitive, .diacriticInsensitive], locale: .current) })
+        // This newly introduced built-in name may already exist as a custom category
+        // in schema-1 catalogs. Preserve those records; UI still rejects new duplicate names.
+        let builtInNames = Set(CategoryResolver.builtIn.filter { $0.id != "ios-apps" }.map { $0.name.folding(options: [.caseInsensitive, .diacriticInsensitive], locale: .current) })
         for category in doc.categories {
             let name = category.name.trimmingCharacters(in: .whitespacesAndNewlines)
             let key = name.folding(options: [.caseInsensitive, .diacriticInsensitive], locale: .current)

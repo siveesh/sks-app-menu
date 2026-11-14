@@ -38,3 +38,10 @@ All notable project changes are documented here.
 ## Unreleased — Dock design proposal
 
 - Drafted optional same-app Dock launcher with shared catalog and Compact/Comfortable/Spacious layouts. Categorized window selected by user; detailed architecture/feasibility approval pending. No product code changed.
+
+##1.0.2 (4) —2026-11-14
+
+- Recognize wrapped and flat iOS application layouts on Apple silicon; list them in iOS Apps.
+- Preserve outer launch/icon identity, visibility and category overrides; keep genuine validation warnings.
+- Preserve legacy custom categories already named iOS Apps.
+- Add five compatibility tests;37 total pass. Refresh bundled Help. Dock feature remains pending design approval.

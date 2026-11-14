@@ -12,3 +12,5 @@
 1.0.1 maintenance milestone: existing approved startup/icon behavior corrected; regression RED→GREEN,32 tests, Release build and local package verification complete. Public qualification items remain unchanged.
 
 Next milestone: optional Dock launcher. Architecture/feasibility draft ready; user selected categorized window. Implementation, Dock runtime QA and new packaging await addendum approval.
+
+1.0.2(4): authorized iOS layout/category compatibility correction complete;37 tests pass. Optional Dock feature remains design-approved approach only, awaiting detailed addendum approval.

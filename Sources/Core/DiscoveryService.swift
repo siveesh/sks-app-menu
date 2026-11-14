@@ -131,7 +131,8 @@ public struct DiscoveryService: Sendable {
               try target.resourceValues(forKeys: [.isDirectoryKey]).isDirectory == true else {
             throw DiscoveryError.invalidApplication("Choose an .app application bundle.")
         }
-        let info = try Self.metadata(at: target)
+        let layout = try Self.layout(at: target)
+        let info = layout.info
         guard info["CFBundlePackageType"] as? String == "APPL" else {
             throw DiscoveryError.invalidApplication("This bundle does not declare the APPL application type.")
         }
@@ -139,9 +140,9 @@ public struct DiscoveryService: Sendable {
               !executableName.contains("/"), executableName != ".", executableName != ".." else {
             throw DiscoveryError.invalidApplication("This application has no valid executable name.")
         }
-        let executable = target.appendingPathComponent("Contents/MacOS").appendingPathComponent(executableName).resolvingSymlinksInPath()
+        let executable = layout.executableDirectory.appendingPathComponent(executableName).resolvingSymlinksInPath()
         // Executable symlinks must also remain inside the selected bundle.
-        guard Self.isInside(executable, root: target),
+        guard Self.isInside(executable, root: layout.payload),
               (try? executable.resourceValues(forKeys: [.isRegularFileKey]).isRegularFile) == true,
               FileManager.default.isExecutableFile(atPath: executable.path) else {
             throw DiscoveryError.invalidApplication("This application has no usable executable.")
@@ -152,14 +153,69 @@ public struct DiscoveryService: Sendable {
             name: Self.nonempty(info["CFBundleDisplayName"] as? String) ?? Self.nonempty(info["CFBundleName"] as? String) ?? target.deletingPathExtension().lastPathComponent,
             bundleIdentifier: Self.nonempty(info["CFBundleIdentifier"] as? String),
             version: Self.nonempty(info["CFBundleShortVersionString"] as? String) ?? Self.nonempty(info["CFBundleVersion"] as? String) ?? "",
-            automaticCategory: CategoryResolver.category(for: info["LSApplicationCategoryType"] as? String),
+            automaticCategory: layout.isIOS ? "ios-apps" : CategoryResolver.category(for: info["LSApplicationCategoryType"] as? String),
             bookmark: try? target.bookmarkData(options: [], includingResourceValuesForKeys: nil, relativeTo: nil),
             fileIdentifier: Self.fileIdentity(target)
         )
     }
 
+    private struct ApplicationLayout {
+        let payload: URL
+        let executableDirectory: URL
+        let info: [String: Any]
+        let isIOS: Bool
+    }
+
+    /// iOS apps on Apple silicon keep a flat payload inside an opaque installed wrapper.
+    /// Only the outer bundle is cataloged/launched; nested payloads are metadata sources.
+    private static func layout(at outer: URL) throws -> ApplicationLayout {
+        let manager = FileManager.default
+        if manager.fileExists(atPath: outer.appendingPathComponent("Contents").path) {
+            let info = try readMetadata(outer.appendingPathComponent("Contents/Info.plist"), inside: outer)
+            return ApplicationLayout(payload: outer, executableDirectory: outer.appendingPathComponent("Contents/MacOS"), info: info, isIOS: false)
+        }
+        let payload: URL
+        let flatInfo = outer.appendingPathComponent("Info.plist")
+        if manager.fileExists(atPath: flatInfo.path) {
+            payload = outer
+        } else {
+            let wrapper = outer.appendingPathComponent("Wrapper")
+            let link = outer.appendingPathComponent("WrappedBundle")
+            guard isInside(wrapper, root: outer) else {
+                throw DiscoveryError.invalidApplication("The iOS wrapper leaves its application bundle.")
+            }
+            if (try? link.resourceValues(forKeys: [.isSymbolicLinkKey]).isSymbolicLink) == true {
+                payload = link.resolvingSymlinksInPath().standardizedFileURL
+            } else {
+                let candidates = try manager.contentsOfDirectory(at: wrapper, includingPropertiesForKeys: [.isDirectoryKey], options: [.skipsHiddenFiles])
+                    .filter { $0.pathExtension.lowercased() == "app" }
+                guard candidates.count == 1, let single = candidates.first else {
+                    throw DiscoveryError.invalidApplication("The iOS wrapper does not contain one identifiable application payload.")
+                }
+                payload = single.resolvingSymlinksInPath().standardizedFileURL
+            }
+            guard isInside(payload, root: outer), isInside(payload, root: wrapper),
+                  canonicalPath(payload.deletingLastPathComponent()) == canonicalPath(wrapper),
+                  payload.pathExtension.lowercased() == "app" else {
+                throw DiscoveryError.invalidApplication("The iOS payload is outside its application wrapper.")
+            }
+        }
+        let info = try readMetadata(payload.appendingPathComponent("Info.plist"), inside: payload)
+        let platforms = info["CFBundleSupportedPlatforms"] as? [String] ?? []
+        guard (info["LSRequiresIPhoneOS"] as? NSNumber)?.boolValue == true || platforms.contains("iPhoneOS") else {
+            throw DiscoveryError.invalidApplication("This flat bundle does not identify itself as an iOS application.")
+        }
+        return ApplicationLayout(payload: payload, executableDirectory: payload, info: info, isIOS: true)
+    }
+
     private static func metadata(at url: URL) throws -> [String: Any] {
-        let infoURL = url.appendingPathComponent("Contents/Info.plist")
+        try layout(at: url).info
+    }
+
+    private static func readMetadata(_ infoURL: URL, inside payload: URL) throws -> [String: Any] {
+        guard isInside(infoURL, root: payload) else {
+            throw DiscoveryError.invalidApplication("The application metadata leaves its bundle.")
+        }
         let size = try infoURL.resourceValues(forKeys: [.fileSizeKey]).fileSize ?? 0
         guard size <= 2_000_000 else { throw DiscoveryError.invalidApplication("The application metadata is too large.") }
         let data = try Data(contentsOf: infoURL, options: [.mappedIfSafe])

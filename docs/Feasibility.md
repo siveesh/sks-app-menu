@@ -77,3 +77,7 @@ Sources: https://developer.apple.com/documentation/appkit/nsmenuitem/preferredim
 ## Dock launcher feasibility addendum — Proposed, approval pending
 
 Recommend the same app/process with native SwiftUI launcher and AppKit dynamic activation policy/reopen adapter, rather than a second binary. Official Apple sources, constraints, persistence compatibility and runtime acceptance checks are in [Dock launcher design](superpowers/specs/2026-11-14-dock-launcher-design.md). No additional entitlements or packages are proposed. Reopen/minimization and Dock transitions still require runtime proof. Existing1.0.1 feasibility approval does not represent approval of this new addendum.
+
+## iOS-on-Mac layout correction —2026-11-14
+
+Read-only installed inspection confirms five real iOS wrappers with root-level payload Info.plist and executable. Native Foundation can read those files; missing macOS Contents/Info.plist is not proof of inaccessible data. Use LSRequiresIPhoneOS/CFBundleSupportedPlatforms iPhoneOS markers, canonical containment and the outer app URL. No new dependency/permissions. Apple Info.plist and bundle-structure references: https://developer.apple.com/documentation/bundleresources/information-property-list and https://developer.apple.com/library/archive/documentation/CoreFoundation/Conceptual/CFBundles/BundleTypes/BundleTypes.html. Direct user-approved compatibility fix, independent of pending Dock addition.

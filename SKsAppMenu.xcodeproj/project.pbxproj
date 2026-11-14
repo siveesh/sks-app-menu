@@ -17,6 +17,7 @@
 		4BF4A5EB460922FDBF6FFFB6 /* libMenuCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 953AAC8B7D06B8B5C992137E /* libMenuCore.a */; };
 		4EF6A2D1C99D4A0822949712 /* CoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5946BF13992E84EDDB9B75 /* CoreTests.swift */; };
 		5B85515BA7CC13B0537A89AC /* MenuRenderingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F2D7144E36341676371DC3 /* MenuRenderingTests.swift */; };
+		5DE4A9BC34B9F52E78A6E7AF /* IOSDiscoveryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D705CDA7AA63D632CC6060 /* IOSDiscoveryTests.swift */; };
 		63826FFFF4E54E9D058AECEF /* CatalogTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A109711407EC4084DE15EF3 /* CatalogTypes.swift */; };
 		6FB013C6B9D8451B849757D7 /* CatalogReconciler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19A99F9E833566EC2C8B64F /* CatalogReconciler.swift */; };
 		739D524059E653958E4DB8C4 /* Help.md in Resources */ = {isa = PBXBuildFile; fileRef = EDA16C8FEEF225C3CC0BC7A6 /* Help.md */; };
@@ -77,6 +78,7 @@
 		51F2D7144E36341676371DC3 /* MenuRenderingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuRenderingTests.swift; sourceTree = "<group>"; };
 		5A109711407EC4084DE15EF3 /* CatalogTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogTypes.swift; sourceTree = "<group>"; };
 		5CB97F2FB7D3A65097697FDE /* LaunchIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchIntegrationTests.swift; sourceTree = "<group>"; };
+		63D705CDA7AA63D632CC6060 /* IOSDiscoveryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSDiscoveryTests.swift; sourceTree = "<group>"; };
 		6408950B376947CA7BD4112A /* PreferencesStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesStoreTests.swift; sourceTree = "<group>"; };
 		773A584ADAEE31603AD66C16 /* DiscoveryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryService.swift; sourceTree = "<group>"; };
 		8572116AB2738C69B90E7EF2 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				1A5946BF13992E84EDDB9B75 /* CoreTests.swift */,
+				63D705CDA7AA63D632CC6060 /* IOSDiscoveryTests.swift */,
 				6408950B376947CA7BD4112A /* PreferencesStoreTests.swift */,
 			);
 			name = CoreTests;
@@ -369,6 +372,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4EF6A2D1C99D4A0822949712 /* CoreTests.swift in Sources */,
+				5DE4A9BC34B9F52E78A6E7AF /* IOSDiscoveryTests.swift in Sources */,
 				B3D2FDA46BEC4919BD0826EC /* PreferencesStoreTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -526,7 +530,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 4;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -541,7 +545,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 27.0;
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -606,7 +610,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 4;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -627,7 +631,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 27.0;
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;

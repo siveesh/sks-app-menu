@@ -3,7 +3,7 @@ import Foundation
 /// Stable identifiers deliberately remain independent of presentation names.
 public enum CategoryResolver {
     public static let builtIn: [AppCategory] = [
-        ("business", "Business"), ("developer-tools", "Developer Tools"),
+        ("ios-apps", "iOS Apps"), ("business", "Business"), ("developer-tools", "Developer Tools"),
         ("education", "Education"), ("entertainment", "Entertainment"),
         ("finance", "Finance"), ("games", "Games"),
         ("graphics-design", "Graphics & Design"), ("healthcare-fitness", "Health & Fitness"),

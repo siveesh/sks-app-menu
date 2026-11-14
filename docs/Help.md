@@ -8,6 +8,10 @@ Refresh Applications scans /Applications, /System/Applications, and your persona
 
 Choose Add Application… to browse for a valid application bundle anywhere else. Cancel leaves your catalog unchanged. Adding an app already in the catalog selects its existing record; a hidden app stays hidden until you turn on Show in menu. Manually adding a background app displays a notice because it may have no window.
 
+## iOS Apps
+
+Installed iPhone and iPad apps running on Apple silicon are listed under iOS Apps. Their wrapped payload metadata is read while their outer installed app is used for icons and launching. Genuine unreadable or malformed apps still produce warnings. You can hide these apps or override their category just like Mac apps.
+
 ## Manage visibility and categories
 
 Choose Manage Applications… and search by name, location, or category. Use All, Visible, Hidden, or Missing to filter. Select an app to inspect its full location and version. Turn off Show in menu to hide it; turn it on to restore it. Hiding never deletes or changes an installed app.
