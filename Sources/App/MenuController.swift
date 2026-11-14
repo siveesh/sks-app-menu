@@ -7,7 +7,7 @@ final class MenuController: NSObject, NSMenuDelegate {
     private let model: CatalogModel
     private let windows: WindowActionRelay
     private let statusItem: NSStatusItem
-    private let menu = NSMenu()
+    let menu = NSMenu()
     private var isTracking = false
     private var needsRebuild = true
     private var icons: [String: NSImage] = [:]
@@ -72,6 +72,7 @@ final class MenuController: NSObject, NSMenuDelegate {
                 child.toolTip = "\(app.name)\n\(app.url.path)"
                 // Install the native icon before AppKit lays out the submenu.
                 child.image = icon(for: app)
+                child.preferredImageVisibility = .visible
                 submenu.addItem(child)
             }
             item.toolTip = category

@@ -93,3 +93,9 @@ Builder may choose file organization, private protocol names, test framework, an
 ## Approved interface refinement — 2026-11-14
 
 User requested icons beside app menu listings and a narrower menu fitted to content and shortcuts. Attach cached native app icons before submenu layout; use concise status/action titles and parent-folder disambiguation. Native intrinsic menu sizing remains; unusually long names are elided to a 240-point text budget, with full names/paths in tooltips and Manage Applications. Add exposes Cmd-O alongside existing management/refresh/help/quit equivalents. This is an authorized UI refinement, not a new approval gate.
+
+## 1.0.1 startup and icon correction — 2026-11-14
+
+User reported default management-window opening and absent app icons despite assigned images. SDK NSMenuItem.h and Apple's preferredImageVisibility reference confirm macOS27 defaults image visibility to Automatic and typically hides images. Set each application row to .visible explicitly; do not change global macOS preferences. The new real-menu regression failed with Automatic(rawValue0) versus Visible(rawValue1), then passed. All32 Xcode tests pass; result bundle Test-SKsAppMenu-2026.11.14_11-53-30-+0300.xcresult. Prior final handoff was launched with --manage; normal launch now omits that flag and every utility scene disables restoration as well as suppressing default launch. Explicit management access remains in the menu.
+
+Sources: https://developer.apple.com/documentation/appkit/nsmenuitem/preferredimagevisibility and https://developer.apple.com/documentation/swiftui/scene/restorationbehavior(_:). No new framework, entitlement or storage change. Release version1.0.1, build2. Logs retained in Build/Evidence. Native startup verification and package results are appended after observation.

@@ -45,7 +45,7 @@ For isolated QA, launch the app with `--manage --store-directory /absolute/test/
 ## Local packaging
 
 ```bash
-./scripts/package.sh 1.0.0-local
+./scripts/package.sh 1.0.1-local
 ```
 
 Creates a Release-configuration DMG in Release with the app, Applications link and installation notes. It refuses to overwrite an existing same-version artifact. This script produces an **ad-hoc signed local development build**, with Hardened Runtime, **not a Developer ID signed or notarized public release**. Gatekeeper may block an ad-hoc download; do not disable system security. Public distribution requires signing/notarization and a repository licence decision.
@@ -57,3 +57,5 @@ Sources/Core contains values, discovery, classification, reconciliation and pers
 [Architecture](docs/Architecture.md) and [Feasibility](docs/Feasibility.md) were approved by Siveesh on 2026-11-14. [Verification](docs/Verification.md), [QA](docs/QA.md), [Open issues](docs/OpenIssues.md), and [Handoff](docs/SessionHandoff.md) record actual evidence and remaining limitations. AGENTS.md is authoritative.
 
 This is an independent rebuild using https://github.com/barseghyanartur/app-menu/ as a behavioral reference. No upstream code or assets were imported. No licence to third-party material is implied. Developer identity images were reused from the owner's Relay project; public repository licensing is not yet selected.
+
+Version1.0.1 explicitly preserves application icons in macOS27 menus. Normal launch opens no utility windows; Manage Applications is opened from the menu when needed, and its window is not restored from the previous session.

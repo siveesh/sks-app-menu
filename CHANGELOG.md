@@ -28,3 +28,9 @@ All notable project changes are documented here.
 - Added app icons in category menus, compact labels/full tooltips, native shortcuts and full-height management layout.
 - Added Help/About, original layered icon, checked-in Xcode targets, tests and run/package tooling.
 -31 tests pass; Debug/Release build, actual vendor scan and exact-URL launch verified. Local ad-hoc/runtime DMG only; public signing/notarization not claimed.
+
+##1.0.1 (2) —2026-11-14
+
+- Explicitly request visible app menu images using the macOS27 API.
+- Disable utility-window restoration; normal launch stays in the menu bar.
+- Add actual menu-row visibility regression;32 tests pass.

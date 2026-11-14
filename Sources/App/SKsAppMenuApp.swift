@@ -82,6 +82,7 @@ struct SKsAppMenuApp: App {
         }
         .defaultSize(width: 920, height: 600)
         .defaultLaunchBehavior(.suppressed)
+        .restorationBehavior(.disabled)
         .commands {
             CommandGroup(replacing: .newItem) {
                 Button("Add Application…") { runtime.model.chooseApplication() }
@@ -104,12 +105,15 @@ struct SKsAppMenuApp: App {
         }
         .defaultSize(width: 480, height: 430)
         .defaultLaunchBehavior(.suppressed)
+        .restorationBehavior(.disabled)
         Window("SK's App Menu Help", id: "help") { HelpView() }
             .defaultSize(width: 660, height: 620)
             .defaultLaunchBehavior(.suppressed)
+        .restorationBehavior(.disabled)
         Window("About SK's App Menu", id: "about") { AboutView() }
             .windowResizability(.contentSize)
             .defaultLaunchBehavior(.suppressed)
+        .restorationBehavior(.disabled)
     }
 
     private func installWindowRelay() {

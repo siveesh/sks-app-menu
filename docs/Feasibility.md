@@ -67,3 +67,9 @@ Revisit for Mac App Store distribution, pre-27 systems or Intel support, global 
 - [Hardened Runtime](https://developer.apple.com/documentation/security/hardened-runtime)
 - [Upstream reference](https://github.com/barseghyanartur/app-menu/)
 - Local orchestrator retrieval: AppKit delegate bridge, advanced development workflow, sandbox filesystem access, Hardened Runtime requirements. Retrieved unrelated extension/RAG/AVFoundation chunks were not used to select APIs. Unverified/speculative corpus statements were not adopted.
+
+## 1.0.1 startup and icon correction — 2026-11-14
+
+User reported default management-window opening and absent app icons despite assigned images. SDK NSMenuItem.h and Apple's preferredImageVisibility reference confirm macOS27 defaults image visibility to Automatic and typically hides images. Set each application row to .visible explicitly; do not change global macOS preferences. The new real-menu regression failed with Automatic(rawValue0) versus Visible(rawValue1), then passed. All32 Xcode tests pass; result bundle Test-SKsAppMenu-2026.11.14_11-53-30-+0300.xcresult. Prior final handoff was launched with --manage; normal launch now omits that flag and every utility scene disables restoration as well as suppressing default launch. Explicit management access remains in the menu.
+
+Sources: https://developer.apple.com/documentation/appkit/nsmenuitem/preferredimagevisibility and https://developer.apple.com/documentation/swiftui/scene/restorationbehavior(_:). No new framework, entitlement or storage change. Release version1.0.1, build2. Logs retained in Build/Evidence. Native startup verification and package results are appended after observation.

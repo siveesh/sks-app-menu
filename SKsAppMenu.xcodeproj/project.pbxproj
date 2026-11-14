@@ -16,6 +16,7 @@
 		28855A1E2472D876361E854B /* CategoryResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CE26F2691D050ADF8CB092 /* CategoryResolver.swift */; };
 		4BF4A5EB460922FDBF6FFFB6 /* libMenuCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 953AAC8B7D06B8B5C992137E /* libMenuCore.a */; };
 		4EF6A2D1C99D4A0822949712 /* CoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5946BF13992E84EDDB9B75 /* CoreTests.swift */; };
+		5B85515BA7CC13B0537A89AC /* MenuRenderingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F2D7144E36341676371DC3 /* MenuRenderingTests.swift */; };
 		63826FFFF4E54E9D058AECEF /* CatalogTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A109711407EC4084DE15EF3 /* CatalogTypes.swift */; };
 		6FB013C6B9D8451B849757D7 /* CatalogReconciler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19A99F9E833566EC2C8B64F /* CatalogReconciler.swift */; };
 		739D524059E653958E4DB8C4 /* Help.md in Resources */ = {isa = PBXBuildFile; fileRef = EDA16C8FEEF225C3CC0BC7A6 /* Help.md */; };
@@ -73,6 +74,7 @@
 		32657A0C3246FDF054D97236 /* MenuCoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MenuCoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		47CB6BCE52CC910093C5A44B /* PreferencesStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesStore.swift; sourceTree = "<group>"; };
 		496B01AACEBFD255C1E93088 /* MenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
+		51F2D7144E36341676371DC3 /* MenuRenderingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuRenderingTests.swift; sourceTree = "<group>"; };
 		5A109711407EC4084DE15EF3 /* CatalogTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogTypes.swift; sourceTree = "<group>"; };
 		5CB97F2FB7D3A65097697FDE /* LaunchIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchIntegrationTests.swift; sourceTree = "<group>"; };
 		6408950B376947CA7BD4112A /* PreferencesStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesStoreTests.swift; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 			children = (
 				B3F0E0829E5D2A9EE24EC108 /* CatalogModelTests.swift */,
 				5CB97F2FB7D3A65097697FDE /* LaunchIntegrationTests.swift */,
+				51F2D7144E36341676371DC3 /* MenuRenderingTests.swift */,
 			);
 			name = AppTests;
 			path = Tests/AppTests;
@@ -390,6 +393,7 @@
 			files = (
 				26AC779295A8923FC8384BB1 /* CatalogModelTests.swift in Sources */,
 				A0CD431FD5CA2E12537F6664 /* LaunchIntegrationTests.swift in Sources */,
+				5B85515BA7CC13B0537A89AC /* MenuRenderingTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -522,7 +526,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -537,7 +541,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 27.0;
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.0.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -602,7 +606,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -623,7 +627,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 27.0;
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.0.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
