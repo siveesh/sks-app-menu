@@ -93,3 +93,9 @@ Siveesh verified and approved the categorized Dock launcher design and requested
 ## Refresh warning preference —2026-11-14
 
 Existing native Toggle/NSMenuItem and Observable model can share the current atomic catalog persistence. Add a defaulted optional boolean; old catalogs decode safely and malformed values remain protected. Reuse current AppKit/SwiftUI APIs, no dependencies/permissions or new Apple API assumptions. Direct user request authorizes this reversible extension within approved architecture. Session-only dismissal would repeat after refresh/restart; per-warning ignores add unnecessary identity/maintenance complexity for this request.
+
+## Grid/signing feasibility —2026-11-14
+
+Reuse existing native SwiftUI view/data model and shared presentation enum. LazyVGrid lazily creates visible cells and ScrollView supplies viewport; bounded geometry computes columns for navigation as well as display. NSCollectionView would add a larger bridge with no current requirement. All-at-once Grid has unnecessary eager creation. One density choice remains shared, now controls grid dimensions. No dependencies, schema change, new entitlements or cloud processing.
+
+security find-identity confirms Developer ID Application available; current1.1.1 bundle actually ad-hoc (no TeamIdentifier). User explicitly chose Developer ID for new package. Package script accepts explicit signing identity; default local fallback remains available. Sign app then DMG with verified authority/timestamp, without notarization submission or credential provisioning. Sources: https://developer.apple.com/documentation/swiftui/lazyvgrid and https://developer.apple.com/documentation/xcode/creating-distribution-signed-code-for-the-mac. Direct authorized update to existing approved architecture.

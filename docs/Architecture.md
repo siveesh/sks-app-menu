@@ -119,3 +119,9 @@ Siveesh verified and approved the categorized Dock launcher design and requested
 ## Refresh warning visibility —2026-11-14
 
 Direct user-authorized small preference extension: provide a persistent, reversible Hide Refresh Warnings option for the menu and Dock launcher. Keep raw diagnostics available in Manage Applications; suppression affects scan notices only. Preserve save/recovery/Dock/launch errors and existing identities/preferences. Builder default: hideRefreshWarnings=false so existing behavior remains until changed. Prefer one shared boolean in the schema1 optional presentation block over a session-only dismissal or per-warning rules. No scanner behavior or app validation changes.
+
+## Grid launcher and Developer ID signing —2026-11-14
+
+User requested replacing Dock launcher rows with an icon grid; retain existing sidebar/search/shared visibility, three saved sizes and exact-copy launch. Use native SwiftUI LazyVGrid in a bounded scroll view. Names below icons (two lines with full tooltip), native selected tint, adaptive columns on resize. Compact/Comfortable/Spacious use40/56/72px icons and96/112/144px minimum cell widths. Arrow navigation moves by actual visible column count, Return launches selection; empty/filtered data must be safe. Root builder chooses these sizes; no persistence/schema changes.
+
+User explicitly chose available Developer ID Application certificate for updated package. Keep Debug/test ad-hoc for reproducibility; package with Developer ID + Hardened Runtime + secure timestamp and verify actual authority/team. Developer ID signing and notarization are separate; notarization not requested or claimed. Never export keys. Diagnose reported macOS file-not-found dialog during Codex test relaunches; do not suppress genuine app errors or change scanner without reproduction.

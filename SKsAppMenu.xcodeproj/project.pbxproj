@@ -29,8 +29,11 @@
 		A0CD431FD5CA2E12537F6664 /* LaunchIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB97F2FB7D3A65097697FDE /* LaunchIntegrationTests.swift */; };
 		A267747876D9D4631E2F0753 /* SKsAppMenuApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FDC95D5513521F1842712C /* SKsAppMenuApp.swift */; };
 		A496FAAC36B143EC8460E9B3 /* DiscoveryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773A584ADAEE31603AD66C16 /* DiscoveryService.swift */; };
+		AA221AA323D06E997596AE24 /* LauncherGridLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D69131575CFB5AA02CEDA4 /* LauncherGridLayout.swift */; };
+		AD1D40F9303B761CDB1671E2 /* LauncherApplicationGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2292A4ED2A807DCD4F0DBD /* LauncherApplicationGrid.swift */; };
 		B2E86A806E0B621FC48FC84B /* CategoryManagementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33F92809F15C27B274F8FBB /* CategoryManagementView.swift */; };
 		B3D2FDA46BEC4919BD0826EC /* PreferencesStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6408950B376947CA7BD4112A /* PreferencesStoreTests.swift */; };
+		B77D6E74B54BFCFBAA1AEE68 /* LauncherGridTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6612D5CC114232FA9A6E593 /* LauncherGridTests.swift */; };
 		B7B64EEB0E896980D31990FF /* CatalogModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F33E0541ED920D1C667F7C /* CatalogModel.swift */; };
 		BBD567062BE2914126427D76 /* libMenuCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 953AAC8B7D06B8B5C992137E /* libMenuCore.a */; };
 		CEB4013E9E90DD791C4A1AAB /* DockLauncherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60D7EC71D6879F97BD75B283 /* DockLauncherTests.swift */; };
@@ -73,6 +76,7 @@
 		068D10AA170EB963BA58EE81 /* SKsAppMenuTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SKsAppMenuTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EE6CC3FC07F4284DE0C05F8 /* ManagementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagementView.swift; sourceTree = "<group>"; };
 		10CE26F2691D050ADF8CB092 /* CategoryResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryResolver.swift; sourceTree = "<group>"; };
+		12D69131575CFB5AA02CEDA4 /* LauncherGridLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LauncherGridLayout.swift; sourceTree = "<group>"; };
 		14FDC95D5513521F1842712C /* SKsAppMenuApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKsAppMenuApp.swift; sourceTree = "<group>"; };
 		1A5946BF13992E84EDDB9B75 /* CoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreTests.swift; sourceTree = "<group>"; };
 		1C44C4F7D7DE5E6C4EBCCA9F /* DockPresenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DockPresenceController.swift; sourceTree = "<group>"; };
@@ -91,10 +95,12 @@
 		8572116AB2738C69B90E7EF2 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		953AAC8B7D06B8B5C992137E /* libMenuCore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMenuCore.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CF4A5894C61BD27324148A5 /* PresentationPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationPreferences.swift; sourceTree = "<group>"; };
+		9F2292A4ED2A807DCD4F0DBD /* LauncherApplicationGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LauncherApplicationGrid.swift; sourceTree = "<group>"; };
 		A19A99F9E833566EC2C8B64F /* CatalogReconciler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogReconciler.swift; sourceTree = "<group>"; };
 		B3F0E0829E5D2A9EE24EC108 /* CatalogModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogModelTests.swift; sourceTree = "<group>"; };
 		BF7C209EC264D3746319CC4C /* AppIcon.icon */ = {isa = PBXFileReference; lastKnownFileType = wrapper.icon; path = AppIcon.icon; sourceTree = "<group>"; };
 		C378D3C5993625B5EC2AB642 /* HelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpView.swift; sourceTree = "<group>"; };
+		D6612D5CC114232FA9A6E593 /* LauncherGridTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LauncherGridTests.swift; sourceTree = "<group>"; };
 		DE3B76C36F50C51AB5912B3B /* SKsAppMenu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SKsAppMenu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E33F92809F15C27B274F8FBB /* CategoryManagementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryManagementView.swift; sourceTree = "<group>"; };
 		EDA16C8FEEF225C3CC0BC7A6 /* Help.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Help.md; sourceTree = "<group>"; };
@@ -148,6 +154,7 @@
 			children = (
 				B3F0E0829E5D2A9EE24EC108 /* CatalogModelTests.swift */,
 				60D7EC71D6879F97BD75B283 /* DockLauncherTests.swift */,
+				D6612D5CC114232FA9A6E593 /* LauncherGridTests.swift */,
 				5CB97F2FB7D3A65097697FDE /* LaunchIntegrationTests.swift */,
 				51F2D7144E36341676371DC3 /* MenuRenderingTests.swift */,
 			);
@@ -163,6 +170,8 @@
 				E33F92809F15C27B274F8FBB /* CategoryManagementView.swift */,
 				1C44C4F7D7DE5E6C4EBCCA9F /* DockPresenceController.swift */,
 				C378D3C5993625B5EC2AB642 /* HelpView.swift */,
+				9F2292A4ED2A807DCD4F0DBD /* LauncherApplicationGrid.swift */,
+				12D69131575CFB5AA02CEDA4 /* LauncherGridLayout.swift */,
 				250DC44227CCEEF0334A197C /* LauncherView.swift */,
 				0EE6CC3FC07F4284DE0C05F8 /* ManagementView.swift */,
 				496B01AACEBFD255C1E93088 /* MenuController.swift */,
@@ -390,6 +399,8 @@
 				B2E86A806E0B621FC48FC84B /* CategoryManagementView.swift in Sources */,
 				0B54BF0320E6F6388722A402 /* DockPresenceController.swift in Sources */,
 				7BEBBEB8E4FDB600A895FCE7 /* HelpView.swift in Sources */,
+				AD1D40F9303B761CDB1671E2 /* LauncherApplicationGrid.swift in Sources */,
+				AA221AA323D06E997596AE24 /* LauncherGridLayout.swift in Sources */,
 				32963E0B1197554B4109E449 /* LauncherView.swift in Sources */,
 				D69BFF9BA5EF6D8C1CEB02B7 /* ManagementView.swift in Sources */,
 				1781DAA9036FBC1D309CF58C /* MenuController.swift in Sources */,
@@ -404,6 +415,7 @@
 				26AC779295A8923FC8384BB1 /* CatalogModelTests.swift in Sources */,
 				CEB4013E9E90DD791C4A1AAB /* DockLauncherTests.swift in Sources */,
 				A0CD431FD5CA2E12537F6664 /* LaunchIntegrationTests.swift in Sources */,
+				B77D6E74B54BFCFBAA1AEE68 /* LauncherGridTests.swift in Sources */,
 				5B85515BA7CC13B0537A89AC /* MenuRenderingTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -538,7 +550,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -553,7 +565,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 27.0;
-				MARKETING_VERSION = 1.1.1;
+				MARKETING_VERSION = 1.2.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -618,7 +630,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -639,7 +651,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 27.0;
-				MARKETING_VERSION = 1.1.1;
+				MARKETING_VERSION = 1.2.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;

@@ -27,7 +27,7 @@ struct LauncherView: View {
         } detail: {
             VStack(spacing: 0) {
                 LauncherWarnings(model: model, manage: { windows.open("manage") })
-                LauncherApplicationList(apps: apps, density: model.document.presentation.launcherDensity,
+                LauncherApplicationGrid(apps: apps, density: model.document.presentation.launcherDensity,
                     selection: $selection, launch: model.launch)
                 HStack {
                     Text("\(apps.count) applications").monospacedDigit()
@@ -45,7 +45,7 @@ struct LauncherView: View {
                 Picker("Display size", selection: Binding(get: { model.document.presentation.launcherDensity }, set: model.setLauncherDensity)) {
                     ForEach(LauncherDensity.allCases) { Text($0.title).tag($0) }
                 }
-                .help("Launcher icon, text, and row size")
+                .help("Launcher icon, text, and grid size")
                 .disabled(!model.canEdit)
             }
             ToolbarItemGroup {
@@ -89,66 +89,6 @@ private struct LauncherSidebar: View {
         }
         .listStyle(.sidebar)
         .navigationTitle("Applications")
-    }
-}
-
-private struct LauncherApplicationList: View {
-    let apps: [AppRecord]
-    let density: LauncherDensity
-    @Binding var selection: UUID?
-    let launch: (AppRecord) -> Void
-
-    var body: some View {
-        List(selection: $selection) {
-            ForEach(apps) { app in
-                Button { selection = app.id; launch(app) } label: {
-                    LauncherApplicationRow(app: app, density: density)
-                }
-                .buttonStyle(.plain)
-                .tag(app.id)
-                .help("\(app.name)\n\(app.url.path)")
-                .accessibilityLabel("Open \(app.name)")
-                .accessibilityHint(app.url.path)
-            }
-        }
-        .listStyle(.inset)
-        .environment(\.defaultMinListRowHeight, density.rowHeight)
-        .onKeyPress(.return) {
-            guard let app = apps.first(where: { $0.id == selection }) else { return .ignored }
-            launch(app)
-            return .handled
-        }
-        .overlay {
-            if apps.isEmpty {
-                ContentUnavailableView("No Applications", systemImage: "magnifyingglass",
-                    description: Text("Try another search or category. Use Manage Applications to restore hidden or missing apps."))
-                    .allowsHitTesting(false)
-            }
-        }
-    }
-}
-
-private struct LauncherApplicationRow: View {
-    let app: AppRecord
-    let density: LauncherDensity
-    @State private var image: NSImage?
-    var body: some View {
-        HStack(spacing: density == .compact ? 8 : 12) {
-            Group {
-                if let image { Image(nsImage: image).resizable().scaledToFit() }
-                else { Image(systemName: "app").resizable().scaledToFit().foregroundStyle(.secondary) }
-            }
-            .frame(width: density.iconSize, height: density.iconSize).accessibilityHidden(true)
-            Text(app.name).font(.system(size: density.fontSize)).fixedSize(horizontal: false, vertical: true)
-            Spacer(minLength: 8)
-            if app.availability == .unverified {
-                Image(systemName: "exclamationmark.triangle").foregroundStyle(.secondary)
-                    .accessibilityLabel("Location not verified")
-            }
-        }
-        .frame(maxWidth: .infinity, minHeight: density.rowHeight, alignment: .leading)
-        .contentShape(Rectangle())
-        .task(id: app.url) { image = NSWorkspace.shared.icon(forFile: app.url.path) }
     }
 }
 

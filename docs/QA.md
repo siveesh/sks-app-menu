@@ -1,6 +1,6 @@
 # QA and Performance
 
-Current baseline:1.1.1,62 automated tests pass.
+Current baseline:1.2.0,65 automated tests pass.
 
 Status: Automated QA passed; native smoke assessment complete with documented manual follow-ups.
 Reviewed: 2026-11-14. See Verification.md for commands, actual results and artifact paths.
@@ -62,3 +62,9 @@ Final full Xcode suite59/59 passes; source/resource integration built on macOS27
 Reviewed storage compatibility, raw diagnostic retention, important-error priority, read-only guards and UI bindings before packaging. Default false preserves existing notice behavior; clearing the option restores current diagnostics without rescanning. Schema remains1, strict boolean decoding protects malformed data, no new dependency/permission or background work. Existing scanner errors are neither ignored nor downgraded.
 
 RED: absent encoded flag/invalid-type rejection and missing menu action. Final62 tests pass (38core/store,24app), including real PreferencesStore restart + native NSMenu action hide/re-enable, retained raw scan details and protected-data recovery priority/read-only rejection. The additional critical-notice test's first expectation incorrectly used save notice despite a recoveryRequired error; corrected to recovery priority, with no production change. Native isolated UI showed hidden launcher banner, enabled Hide Refresh Warnings checkbox and Refresh warnings(1) still available in management. Manual re-enable pointer pass was interrupted by native automation state invalidation/no window; automated real-menu/persistence test proves that path. No broader manual/appearance certification claimed.
+
+## 1.2.0 grid and signed-package QA
+
+Reviewed navigation at row boundaries, partial last row, empty/filter invalidation, adaptive-width limits, exact-copy launch and shared preferences. Focused keyboard/layout tests RED→GREEN; final full65/65 tests pass. Native signed candidate inspected at760px and resized1000px, with icon/name grid and selection. Comfortable56px, Compact40px and Spacious72px renders inspected through isolated stores; UI automation state invalidations prevented reliable repeated pointer switching, so the last two were launched with saved isolated density settings. Search fixture1 result, Down selected tile, Return wrote exact fixture bundle URL. No installed user app launched.
+
+Package signature authority/team/timestamp verified independently; secure timestamp does not imply notarization. No private key export or new entitlements. Test relaunch dialog investigation found no app missing-file path: production store/scan/resource checks and three signed stable-path native launches clean. Exact historical Finder dialog cause unconfirmed; report observational nonrecurrence rather than a proven source bug fix. Full VoiceOver/light appearance/earliest macOS runtime remain open. No new latency benchmark claim.

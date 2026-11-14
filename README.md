@@ -34,7 +34,7 @@ Click the grid icon in the menu bar. Apps are grouped by category, with names an
 
 [Detailed Help](docs/Help.md) is also bundled and accessible from the app's Help menu. About uses the existing SK developer identity assets and an original layered app icon.
 
-Choose **Show in Dock** to enable the categorized launcher. **Open Launcher…** also opens it without a Dock icon. Compact, Comfortable, and Spacious change icon, text, and row sizes; your choice is saved. The window shares search, categories, visibility, and exact-copy launching with the menu. Clicking the Dock icon restores the same window. The original Prism Launcher icon uses native Icon Composer layers and supports Default, Dark, and Mono appearances.
+Choose **Show in Dock** to enable the categorized icon grid. **Open Launcher…** also opens it without a Dock icon. Compact, Comfortable, and Spacious change icon, text, and grid tile sizes; your choice is saved. The window shares search, categories, visibility, and exact-copy launching with the menu. Clicking the Dock icon restores the same window. The original Prism Launcher icon uses native Icon Composer layers and supports Default, Dark, and Mono appearances.
 
 **Hide Refresh Warnings** in the menu or Manage Applications suppresses scan notices in both launchers and remembers your choice. Details remain available in Manage Applications; clear the option to restore notices. The launcher banner also has a Hide button.
 
@@ -49,10 +49,10 @@ For isolated QA, launch the app with `--manage --store-directory /absolute/test/
 ## Local packaging
 
 ```bash
-./scripts/package.sh 1.1.1-local
+SK_APP_MENU_SIGNING_IDENTITY="Developer ID Application: Your Name (TEAMID)" ./scripts/package.sh 1.2.0-developer-id
 ```
 
-Creates a Release-configuration DMG in Release with the app, Applications link and installation notes. It refuses to overwrite an existing same-version artifact. This script produces an **ad-hoc signed local development build**, with Hardened Runtime, **not a Developer ID signed or notarized public release**. Gatekeeper may block an ad-hoc download; do not disable system security. Public distribution requires signing/notarization and a repository licence decision.
+Creates a Release-configuration DMG in Release with the app, Applications link and installation notes. It refuses to overwrite an existing same-version artifact. Without SK_APP_MENU_SIGNING_IDENTITY the script produces an ad-hoc local build. With the explicitly supplied Developer ID it signs both the app (Hardened Runtime and secure timestamp) and DMG. Version1.2.0 was signed with the owner's Developer ID Application certificate after explicit authorization. **Neither mode performs notarization.** Gatekeeper may block an ad-hoc download; do not disable system security. Public distribution requires signing/notarization and a repository licence decision.
 
 ## Repository and records
 
@@ -65,3 +65,5 @@ This is an independent rebuild using https://github.com/barseghyanartur/app-menu
 Version1.0.1 explicitly preserves application icons in macOS27 menus. Normal launch opens no utility windows; Manage Applications is opened from the menu when needed, and its window is not restored from the previous session.
 
 Version1.0.2 recognizes installed iOS-on-Mac wrappers and flat iOS app bundles in iOS Apps. Genuine inaccessible/invalid bundles still warn. Existing custom categories and per-app overrides are preserved.
+
+Codex test relaunches explicitly target the built application using open -a, wait for the previous process to stop and verify the executable before launch. Native UI QA uses an already-running signed copy at a stable path to avoid launching through ambiguous cached bundle registrations. Debug/test hosts remain locally signed; the packaged app is Developer ID signed.

@@ -64,3 +64,11 @@ All notable project changes are documented here.
 - Add saved Hide Refresh Warnings option in the menu and Manage Applications, plus a launcher banner Hide button.
 - Suppress scan notices in both launchers while preserving diagnostic details in management and keeping other error notices visible.
 - Default older catalogs to showing warnings; preserve existing Dock/density/application preferences. No scanner, dependency or permission changes.
+
+## 1.2.0 (8) —2026-11-14
+
+- Replace Dock launcher rows with responsive icon grids, names beneath icons, three sizes and keyboard arrow/Return navigation.
+- Preserve shared app visibility/categories, search, hide-warning choice and existing Dock/density settings.
+- Add explicit Developer ID package signing for app and DMG, Hardened Runtime and secure timestamp; owner authorized and actual signature verified. Notarization remains separate.
+- Make Codex test launch target explicit, wait for previous process exit and check executable. Investigate macOS file-not-found dialog during automated relaunches; no catalog/scanner error found and signed stable-path checks did not reproduce it. Exact earlier missing path remains unknown.
+-65 automated tests pass (38core/store,27app). No runtime dependencies or storage-schema changes.

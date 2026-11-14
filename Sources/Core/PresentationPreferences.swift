@@ -15,17 +15,9 @@ public enum LauncherDensity: String, CaseIterable, Codable, Sendable, Identifiab
 
     public var iconSize: Double {
         switch self {
-        case .compact: 20
-        case .comfortable: 28
-        case .spacious: 40
-        }
-    }
-
-    public var rowHeight: Double {
-        switch self {
-        case .compact: 32
-        case .comfortable: 44
-        case .spacious: 60
+        case .compact: 40
+        case .comfortable: 56
+        case .spacious: 72
         }
     }
 

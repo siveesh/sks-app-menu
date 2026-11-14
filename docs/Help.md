@@ -6,7 +6,7 @@ Open the grid icon in the menu bar to browse your applications by category. Cate
 
 Choose Show in Dock from the menu-bar menu or Manage Applications → Appearance to enable the Dock icon. Enabling it opens a categorized launcher; clicking its Dock icon reopens the same window, including when minimized. Choose Open Launcher to use the window even with Show in Dock off. Disabling Show in Dock closes the launcher; the menu bar stays available.
 
-Select All Applications or a category, then search by name, category, or location. Click an app to open it, or select a row with the arrow keys and press Return. Both launchers share the same visibility and category settings. Choose Compact, Comfortable, or Spacious in the toolbar or Appearance; the choice is saved. Resize the window independently. Manage Applications opens only when requested.
+Select All Applications or a category, then search by name, category, or location. Applications appear as an icon grid with names below the icons. Click an icon to open it, or focus the grid, move with the arrow keys and press Return. Both launchers share the same visibility and category settings. Choose Compact, Comfortable, or Spacious in the toolbar or Appearance; the choice is saved. These sizes control icon, label and tile dimensions; columns adapt to the window width. Full names and locations are available on hover. Resize the window independently. Manage Applications opens only when requested.
 
 ## Find and add applications
 
