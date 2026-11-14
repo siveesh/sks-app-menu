@@ -24,7 +24,7 @@ For each new release:
 4. Record what passed and what did not. Style/parse/fetch success does not mean the app passed notarization, Gatekeeper or upstream acceptance.
 5. Verify `livecheck` against published GitHub Releases. Do not mark a cask `auto_updates` because this app has no updater.
 
-Latest concrete results are recorded in [Verification.md](Verification.md); do not infer an installation/launch pass from this workflow description.
+Release1.3.0 is published. Style/parse, public fetch, livecheck and tap style CI pass. Online new-cask audit fails repository notability. Concrete evidence is recorded in [Verification.md](Verification.md); these checks do not establish installation/launch qualification.
 
 ## Official Homebrew listing
 

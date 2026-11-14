@@ -16,7 +16,8 @@ Persistent Temporary/LauncherFixture.app verified by own bundle ID, unregistered
 
 ## Publication and Homebrew
 
-Empty public repositories siveesh/sks-app-menu and siveesh/homebrew-tap created through owner browser session. Source/tag/release uploads are pending: CLI and connector deny writes and no accepted SSH key is available. Owner asked to grant the existing fine-grained CLI token Contents/Workflows write access only for these repositories. Prepared release v1.3.0 is unchanged. Remote mutation/download/CI evidence is appended to Verification.md after execution. Cask has pinned final SHA/URL, arm64/macOS27 requirements, no zap/user-data deletion. Homebrew7 requires a real tap for style and scoped trust for loading this reviewed cask; style passes/no offenses and parsing passes. Do not infer install/Gatekeeper approval from those checks. Official inclusion currently lacks age/notability and clean-machine security qualification; no doomed upstream PR.
+Published [source](https://github.com/siveesh/sks-app-menu), [release v1.3.0](https://github.com/siveesh/sks-app-menu/releases/tag/v1.3.0) and [owner tap](https://github.com/siveesh/homebrew-tap). Owner's replacement CLI credential is in Keychain; earlier write-access block is resolved. Tagged source73f4ac8; tap cask a5aaf6b. All five release assets uploaded; anonymous public DMG download SHA matches original/cask. Governance main/tag and tap main style CI pass. Homebrew fetch and livecheck pass; online new-cask audit fails notability only, with an external rubocop-md configuration warning. Official inclusion deferred under actual audit/current policy and unresolved default-security qualification. No upstream PR or Homebrew installation claim. Detailed evidence/URLs are in Verification.md. Published DMG unchanged. Cask has arm64/macOS27 requirements and no zap/user-data deletion; Homebrew7 scoped trust required.
+
 
 ## Documentation and constraints
 
