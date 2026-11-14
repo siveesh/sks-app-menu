@@ -7,6 +7,8 @@ struct LauncherApplicationGrid: View {
     let density: LauncherDensity
     @Binding var selection: UUID?
     let launch: (AppRecord) -> Void
+    let hide: (AppRecord) -> Void
+    let canEdit: Bool
     @FocusState private var isFocused: Bool
 
     private var layout: LauncherGridLayout { LauncherGridLayout(density: density) }
@@ -26,6 +28,10 @@ struct LauncherApplicationGrid: View {
                                 LauncherApplicationTile(app: app, density: density, height: layout.cellHeight, isSelected: selection == app.id)
                             }
                             .buttonStyle(.plain)
+                            .contextMenu {
+                                Button("Hide Application") { hide(app) }
+                                    .disabled(!canEdit)
+                            }
                             .focusable(false)
                             .id(app.id)
                             .help("\(app.name)\n\(app.url.path)")

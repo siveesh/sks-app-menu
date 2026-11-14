@@ -15,3 +15,5 @@ D1 resolved in1.1.0: user explicitly approved the categorized Dock launcher; opt
 Native compatibility follow-up: /System/Applications/Passwords.app is MacOSX with CFBundlePackageType XPC!, excluded by current APPL validation; it remains the single installed-scan warning. Confirmed iOS wrappers no longer warn.
 
 T1: User reported a macOS file-not-found dialog during Codex test relaunches. Finder log correlates with native getApp attempt; exact missing URL not present. Catalog/scanner/resources check clean except known Passwords warning. Explicit app-targeted relaunch and signed stable-path QA launches show no recurrence. If it recurs, capture full dialog owner/missing URL before a source fix; do not suppress app diagnostics or treat signing as proof of the cause.
+
+Window controls: resolved as OS behavior after user confirmed purple sharing icon. Native AX labels it Window sharing during visual capture. App retains standard native Window controls; no custom replacement or privacy suppression. Cmd-W/Cmd-M remain available. Source guidance in Help and Architecture.

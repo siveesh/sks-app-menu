@@ -9,9 +9,9 @@
     "phase": "documentation",
     "approval_status": "approved",
     "approved": "2026-11-14",
-    "milestone": "1.2.0-developer-id",
+    "milestone": "1.2.1-developer-id",
     "dock_design_approved": "2026-11-14",
-    "completed_feature": "grid-launcher-and-developer-id-signing",
+    "completed_feature": "grid-context-hiding-and-uninstaller-defaults",
     "signing_choice": "Developer ID explicitly authorized 2026-11-14"
   }
 }

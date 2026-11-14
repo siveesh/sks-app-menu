@@ -1,6 +1,6 @@
 # QA and Performance
 
-Current baseline:1.2.0,65 automated tests pass.
+Current baseline:1.2.1,70 automated tests pass.
 
 Status: Automated QA passed; native smoke assessment complete with documented manual follow-ups.
 Reviewed: 2026-11-14. See Verification.md for commands, actual results and artifact paths.
@@ -68,3 +68,11 @@ RED: absent encoded flag/invalid-type rejection and missing menu action. Final62
 Reviewed navigation at row boundaries, partial last row, empty/filter invalidation, adaptive-width limits, exact-copy launch and shared preferences. Focused keyboard/layout tests RED→GREEN; final full65/65 tests pass. Native signed candidate inspected at760px and resized1000px, with icon/name grid and selection. Comfortable56px, Compact40px and Spacious72px renders inspected through isolated stores; UI automation state invalidations prevented reliable repeated pointer switching, so the last two were launched with saved isolated density settings. Search fixture1 result, Down selected tile, Return wrote exact fixture bundle URL. No installed user app launched.
 
 Package signature authority/team/timestamp verified independently; secure timestamp does not imply notarization. No private key export or new entitlements. Test relaunch dialog investigation found no app missing-file path: production store/scan/resource checks and three signed stable-path native launches clean. Exact historical Finder dialog cause unconfirmed; report observational nonrecurrence rather than a proven source bug fix. Full VoiceOver/light appearance/earliest macOS runtime remain open. No new latency benchmark claim.
+
+## 1.2.1 visibility defaults and native context menu
+
+Reviewed legacy decoder/persistence compatibility, user-override durability, automatic rename behavior, Add/Locate paths, read-only guards and retained native window presentation. Default-aware hidden assignments distinguish automatic policy from explicit edits. All old required record keys remain strict and malformed ownership type rejects decoding. Existing hidden entries stay explicit; visible legacy Uninstall matches intentionally migrate, with later explicit restore winning. Schema1 remains; older binaries can drop the new marker if used to rewrite data.
+
+Final70 tests pass (42core/store,28app): name cases/default versus explicit choice, real legacy false/true migration, automatic encoding/rename, strict malformed marker and real-store model restore/scan/restart. Existing recovery/scan race/menu/lifecycle tests pass. Native signed package right-clicked controlled SK Launch Test tile → Hide Application → zero results; raw record remained with hidden=true/visibilityIsUserSet=true. Fixture launch timestamp stayed13:07:37, proving this context action did not execute it. No real user app launched. Default hidden uninstallers retained in catalog.
+
+User confirmed purple icon. Earlier/current AX expose Window sharing and native window styles remain standard; documented system capture presentation without attempting to hide privacy UI. Full accessibility/light appearance/earliest-OS qualifications remain as before; no performance claim added. Signed final package and intended-only upgrade migration verified in Verification.md.

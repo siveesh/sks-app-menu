@@ -28,7 +28,8 @@ struct LauncherView: View {
             VStack(spacing: 0) {
                 LauncherWarnings(model: model, manage: { windows.open("manage") })
                 LauncherApplicationGrid(apps: apps, density: model.document.presentation.launcherDensity,
-                    selection: $selection, launch: model.launch)
+                    selection: $selection, launch: model.launch,
+                    hide: { model.setHidden(true, id: $0.id) }, canEdit: model.canEdit)
                 HStack {
                     Text("\(apps.count) applications").monospacedDigit()
                     Spacer()

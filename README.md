@@ -38,6 +38,10 @@ Choose **Show in Dock** to enable the categorized icon grid. **Open Launcher…*
 
 **Hide Refresh Warnings** in the menu or Manage Applications suppresses scan notices in both launchers and remembers your choice. Details remain available in Manage Applications; clear the option to restore notices. The launcher banner also has a Hide button.
 
+Right-click a grid icon → **Hide Application** to hide it from both launchers. Restore it in Manage Applications. Names containing **Uninstall** default to hidden; explicit restoration is saved, including across scans/restarts. Existing matching entries adopt this default on upgrade.
+
+The purple control sometimes shown in the title bar is macOS window-sharing UI during capture, including visual QA. Standard native window controls are retained. Cmd-W/Cmd-M close/minimize the window.
+
 ## Settings and recovery
 
 Settings live in `~/Library/Application Support/com.siveesh.sksappmenu/catalog.json`; the previous valid state is in `catalog-backup.json`. Hiding changes only this launcher. Installed bundles are never edited or removed. Unknown/missing automatic categories use Other until overridden. Duplicate installed copies remain independent.
@@ -49,7 +53,7 @@ For isolated QA, launch the app with `--manage --store-directory /absolute/test/
 ## Local packaging
 
 ```bash
-SK_APP_MENU_SIGNING_IDENTITY="Developer ID Application: Your Name (TEAMID)" ./scripts/package.sh 1.2.0-developer-id
+SK_APP_MENU_SIGNING_IDENTITY="Developer ID Application: Your Name (TEAMID)" ./scripts/package.sh 1.2.1-developer-id
 ```
 
 Creates a Release-configuration DMG in Release with the app, Applications link and installation notes. It refuses to overwrite an existing same-version artifact. Without SK_APP_MENU_SIGNING_IDENTITY the script produces an ad-hoc local build. With the explicitly supplied Developer ID it signs both the app (Hardened Runtime and secure timestamp) and DMG. Version1.2.0 was signed with the owner's Developer ID Application certificate after explicit authorization. **Neither mode performs notarization.** Gatekeeper may block an ad-hoc download; do not disable system security. Public distribution requires signing/notarization and a repository licence decision.

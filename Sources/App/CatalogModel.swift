@@ -335,6 +335,7 @@ final class CatalogModel {
             document.apps[index].fileIdentifier = app.fileIdentifier
             document.apps[index].isManual = true
             document.apps[index].availability = .available
+            document.apps[index].applyAutomaticVisibility()
             selectedAppID = id
         } else {
             let record = AppRecord(url: app.url, name: app.name, bundleIdentifier: app.bundleIdentifier,

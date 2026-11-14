@@ -42,3 +42,5 @@ Confirmed iOS-on-Mac application wrappers are supported and classified in iOS Ap
 Refresh warning visibility is user-controlled in1.1.1: saved Hide Refresh Warnings option suppresses scan notices in both launchers, with raw details retained in management. Other important notices remain visible.
 
 1.2.0 replaces Dock rows with a responsive icon grid; shared categories/search and saved three-size preference retained. User explicitly authorized Developer ID signing, applied to app and DMG with Hardened Runtime/secure timestamp. Notarization remains pending. macOS file-not-found dialog during Codex relaunches investigated without speculative scanner changes; improved explicit test target and stable signed QA launch path.
+
+1.2.1 adds native grid right-click Hide Application and default hiding for display names containing Uninstall. Explicit restoration remains durable; native window controls are unchanged, with macOS sharing indicators documented.

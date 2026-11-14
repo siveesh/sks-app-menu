@@ -72,3 +72,11 @@ All notable project changes are documented here.
 - Add explicit Developer ID package signing for app and DMG, Hardened Runtime and secure timestamp; owner authorized and actual signature verified. Notarization remains separate.
 - Make Codex test launch target explicit, wait for previous process exit and check executable. Investigate macOS file-not-found dialog during automated relaunches; no catalog/scanner error found and signed stable-path checks did not reproduce it. Exact earlier missing path remains unknown.
 -65 automated tests pass (38core/store,27app). No runtime dependencies or storage-schema changes.
+
+## 1.2.1 (9) —2026-11-14
+
+- Add right-click Hide Application to grid tiles, sharing visibility with the menu and existing Manage restore controls.
+- Default names containing Uninstall (case-insensitive) to hidden, including legacy visible matches. Persist explicit visibility choices so restored uninstallers stay visible across refresh/restart/name changes.
+- Add backward-compatible per-app visibility ownership marker without changing schema1; strict wrong-type decoding protects saved data.
+- Document macOS purple window-sharing indicator during capture; retain native window controls and privacy presentation.
+-70 tests pass (42core/store,28app); Developer ID signed package, notarization still separate.

@@ -59,6 +59,7 @@ public enum CatalogReconciler {
             updated.fileIdentifier = fresh.fileIdentifier ?? old.fileIdentifier
             updated.isManual = old.isManual || fresh.isManual
             updated.availability = .available
+            updated.applyAutomaticVisibility()
             return updated
         }
         for index in scan.apps.indices where !usedApps.contains(index) {

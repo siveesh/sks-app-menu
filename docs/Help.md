@@ -6,7 +6,7 @@ Open the grid icon in the menu bar to browse your applications by category. Cate
 
 Choose Show in Dock from the menu-bar menu or Manage Applications → Appearance to enable the Dock icon. Enabling it opens a categorized launcher; clicking its Dock icon reopens the same window, including when minimized. Choose Open Launcher to use the window even with Show in Dock off. Disabling Show in Dock closes the launcher; the menu bar stays available.
 
-Select All Applications or a category, then search by name, category, or location. Applications appear as an icon grid with names below the icons. Click an icon to open it, or focus the grid, move with the arrow keys and press Return. Both launchers share the same visibility and category settings. Choose Compact, Comfortable, or Spacious in the toolbar or Appearance; the choice is saved. These sizes control icon, label and tile dimensions; columns adapt to the window width. Full names and locations are available on hover. Resize the window independently. Manage Applications opens only when requested.
+Select All Applications or a category, then search by name, category, or location. Applications appear as an icon grid with names below the icons. Click an icon to open it, or focus the grid, move with the arrow keys and press Return. Right-click an icon and choose Hide Application to remove it from both launchers. Restore it using Manage Applications → Hidden → Show in menu. Both launchers share the same visibility and category settings. Choose Compact, Comfortable, or Spacious in the toolbar or Appearance; the choice is saved. These sizes control icon, label and tile dimensions; columns adapt to the window width. Full names and locations are available on hover. Resize the window independently. Manage Applications opens only when requested.
 
 ## Find and add applications
 
@@ -23,6 +23,12 @@ Installed iPhone and iPad apps running on Apple silicon are listed under iOS App
 Choose Manage Applications… and search by name, location, or category. Use All, Visible, Hidden, or Missing to filter. Select an app to inspect its full location and version. Turn off Show in menu to hide it from both launchers; turn it on to restore it. Hiding never deletes or changes an installed app.
 
 Select a category for a lasting override. Use Automatic Category restores classification from the app's metadata. Open Categories to create a custom category, select one and enter a new name to rename it, or delete it after confirmation. Built-in categories cannot be renamed or deleted. Deleting a custom category returns its assigned apps to Automatic.
+
+Applications whose display names contain Uninstall (case-insensitive) are hidden by default, including existing matching entries on upgrade. They remain in Manage Applications. Turn on Show in menu to restore one; your explicit choice is remembered across refreshes, name changes and restarts. No application is deleted or altered.
+
+## Window controls during screen sharing
+
+macOS may show a purple window-sharing control in the title bar while the window is being captured or shared, including during visual app testing. This is a system control; the app does not replace its standard window buttons. Command-W closes the current window and Command-M minimizes it. Normal title-bar presentation resumes after capture/sharing ends.
 
 ## Missing apps and copies
 
