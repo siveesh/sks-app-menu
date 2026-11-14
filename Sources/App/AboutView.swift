@@ -21,6 +21,9 @@ struct AboutView: View {
                     }
                 }.accessibilityHidden(true)
                 VStack(spacing: 6) {
+                    Image(nsImage: NSApp.applicationIconImage)
+                        .resizable().scaledToFit().frame(width: 56, height: 56)
+                        .accessibilityHidden(true)
                     Text("SK's App Menu").font(.system(size: 28, weight: .bold, design: .rounded))
                     Text("Your applications, organized in the menu bar.").foregroundStyle(.secondary)
                     Text("Version \(Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "1.0") (Build \(Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as? String ?? "1"))")
@@ -35,6 +38,6 @@ struct AboutView: View {
                     }.font(.callout)
                 }
             }.padding(36)
-        }.frame(width: 460, height: 380)
+        }.frame(width: 460, height: 440)
     }
 }

@@ -54,8 +54,21 @@ public struct CatalogDocument: Codable, Sendable, Equatable {
     public var schemaVersion: Int
     public var apps: [AppRecord]
     public var categories: [AppCategory]
-    public init(schemaVersion: Int = 1, apps: [AppRecord] = [], categories: [AppCategory] = []) {
+    public var presentation: PresentationPreferences
+
+    public init(schemaVersion: Int = 1, apps: [AppRecord] = [], categories: [AppCategory] = [], presentation: PresentationPreferences = PresentationPreferences()) {
         self.schemaVersion = schemaVersion; self.apps = apps; self.categories = categories
+        self.presentation = presentation
+    }
+
+    private enum CodingKeys: String, CodingKey { case schemaVersion, apps, categories, presentation }
+
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        schemaVersion = try container.decode(Int.self, forKey: .schemaVersion)
+        apps = try container.decode([AppRecord].self, forKey: .apps)
+        categories = try container.decode([AppCategory].self, forKey: .categories)
+        presentation = try container.decodeIfPresent(PresentationPreferences.self, forKey: .presentation) ?? PresentationPreferences()
     }
 }
 

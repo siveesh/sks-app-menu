@@ -1,8 +1,81 @@
 {
-  "fill": {"linear-gradient": ["srgb:0.05000,0.35000,0.70000,1.00000", "srgb:0.02000,0.09000,0.22000,1.00000"]},
-  "groups": [
-    {"layers": [{"glass": true,"image-name":"Panel.svg","name":"Glass menu panel"}],"shadow":{"kind":"neutral","opacity":0.35},"translucency":{"enabled":true,"value":0.6}},
-    {"layers": [{"glass": true,"image-name":"Menu.svg","name":"Application rows"}],"shadow":{"kind":"neutral","opacity":0.2},"translucency":{"enabled":true,"value":0.2}}
+  "fill" : {
+    "linear-gradient" : [
+      "srgb:0.15000,0.12000,0.33000,1.00000",
+      "srgb:0.02500,0.04500,0.10000,1.00000"
+    ]
+  },
+  "groups" : [
+    {
+      "layers" : [
+        {
+          "glass" : true,
+          "image-name" : "LaunchMark.svg",
+          "name" : "Applications and launch direction"
+        }
+      ],
+      "shadow" : {
+        "kind" : "neutral",
+        "opacity" : 0.15
+      },
+      "translucency" : {
+        "enabled" : true,
+        "value" : 0
+      }
+    },
+    {
+      "layers" : [
+        {
+          "glass" : true,
+          "image-name" : "LaunchPane.svg",
+          "name" : "Crystal launcher pane"
+        }
+      ],
+      "shadow" : {
+        "kind" : "neutral",
+        "opacity" : 0.25
+      },
+      "translucency" : {
+        "enabled" : true,
+        "value" : 0.35
+      }
+    },
+    {
+      "layers" : [
+        {
+          "glass" : true,
+          "image-name" : "FanBack.svg",
+          "name" : "Violet category card"
+        }
+      ],
+      "shadow" : {
+        "kind" : "neutral",
+        "opacity" : 0.35
+      },
+      "translucency" : {
+        "enabled" : true,
+        "value" : 0.15
+      }
+    },
+    {
+      "layers" : [
+        {
+          "glass" : true,
+          "image-name" : "FanMiddle.svg",
+          "name" : "Aqua launch card"
+        }
+      ],
+      "shadow" : {
+        "kind" : "neutral",
+        "opacity" : 0.35
+      },
+      "translucency" : {
+        "enabled" : true,
+        "value" : 0.2
+      }
+    }
   ],
-  "supported-platforms": {"squares":"shared"}
+  "supported-platforms" : {
+    "squares" : "shared"
+  }
 }

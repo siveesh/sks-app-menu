@@ -2,17 +2,11 @@
 
 | Phase | Status | Evidence |
 | --- | --- | --- |
-| 1. Architecture | Approved2026-11-14 | Architecture.md |
-| 2. Feasibility | Approved2026-11-14 | Feasibility.md |
-| 3. Implementation | Complete | Native app/core/store, Debug+Release builds |
-| 4. QA & Performance | Automated pass; smoke assessment complete |31 tests, independent review fixes, fixture/installed scans; manual qualification gaps in QA.md |
-| 5. Documentation | Complete for local milestone | Help, README, verification, changelog, issues, handoff, lessons bridge |
-| Public release qualification | Pending | Developer ID/notarization, licence, full accessibility/OS coverage |
+|1 Architecture | Approved2026-11-14, including Dock addendum | Architecture.md and approved design |
+|2 Feasibility | Approved2026-11-14 | Feasibility.md |
+|3 Implementation | Complete1.1.0 | Shared presentation persistence, native Dock lifecycle/launcher, layered icon |
+|4 QA & Performance |59 tests pass; native smoke complete | Verification.md, DockUIReport.md, DockCoreReport.md |
+|5 Documentation | Complete; package/install/launch evidence recorded | Help, README, changelog, handoff |
+|Public qualification | Pending | Developer ID/notarization, licence, VoiceOver/light appearance, macOS27.0 runtime |
 
-1.0.1 maintenance milestone: existing approved startup/icon behavior corrected; regression RED→GREEN,32 tests, Release build and local package verification complete. Public qualification items remain unchanged.
-
-Next milestone: optional Dock launcher. Architecture/feasibility draft ready; user selected categorized window. Implementation, Dock runtime QA and new packaging await addendum approval.
-
-1.0.2(4): authorized iOS layout/category compatibility correction complete;37 tests pass. Optional Dock feature remains design-approved approach only, awaiting detailed addendum approval.
-
-1.0.3 UI refinement: category hover tooltips removed by user request. Dock proposal remains pending.
+Delivered milestones: native rebuild1.0.0, menu icon/startup correction1.0.1, iOS Apps recognition1.0.2, category tooltip removal1.0.3, optional Dock launcher and Prism icon1.1.0. The Dock design is approved and implemented; there is no pending design approval.

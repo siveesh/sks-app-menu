@@ -1,6 +1,6 @@
 # SK's App Menu
 
-Native macOS menu-bar application launcher with recursive application discovery, manual addition, reversible hiding, and persistent category overrides.
+Native macOS menu-bar and optional Dock application launcher with recursive application discovery, manual addition, reversible hiding, and persistent category overrides.
 
 ## Requirements
 
@@ -34,18 +34,20 @@ Click the grid icon in the menu bar. Apps are grouped by category, with names an
 
 [Detailed Help](docs/Help.md) is also bundled and accessible from the app's Help menu. About uses the existing SK developer identity assets and an original layered app icon.
 
+Choose **Show in Dock** to enable the categorized launcher. **Open Launcher…** also opens it without a Dock icon. Compact, Comfortable, and Spacious change icon, text, and row sizes; your choice is saved. The window shares search, categories, visibility, and exact-copy launching with the menu. Clicking the Dock icon restores the same window. The original Prism Launcher icon uses native Icon Composer layers and supports Default, Dark, and Mono appearances.
+
 ## Settings and recovery
 
 Settings live in `~/Library/Application Support/com.siveesh.sksappmenu/catalog.json`; the previous valid state is in `catalog-backup.json`. Hiding changes only this launcher. Installed bundles are never edited or removed. Unknown/missing automatic categories use Other until overridden. Duplicate installed copies remain independent.
 
 A damaged/newer catalog is protected in read-only mode. Manage Applications offers Restore Backup or an explicit Archive and Reset action. Save failures remain visible with retry. Quit waits for pending saves, then asks before discarding unsaved work if necessary.
 
-For isolated QA, launch the app with `--manage --store-directory /absolute/test/directory` or set `SK_APP_MENU_STORE_DIRECTORY`. `--manage` opens the management window after startup. Normal startup stays in the menu bar. Closing a window does not quit the app.
+For isolated QA, launch the app with `--manage --store-directory /absolute/test/directory` or set `SK_APP_MENU_STORE_DIRECTORY`. `--manage` opens the management window after startup. Normal startup stays in the menu bar unless Show in Dock was enabled; then the launcher opens. Manage Applications never opens automatically. Closing a window does not quit the app.
 
 ## Local packaging
 
 ```bash
-./scripts/package.sh 1.0.2-local
+./scripts/package.sh 1.1.0-local
 ```
 
 Creates a Release-configuration DMG in Release with the app, Applications link and installation notes. It refuses to overwrite an existing same-version artifact. This script produces an **ad-hoc signed local development build**, with Hardened Runtime, **not a Developer ID signed or notarized public release**. Gatekeeper may block an ad-hoc download; do not disable system security. Public distribution requires signing/notarization and a repository licence decision.

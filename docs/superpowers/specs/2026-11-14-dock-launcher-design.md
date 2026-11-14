@@ -1,13 +1,13 @@
 # Optional Dock launcher — design
 
-Status: Proposed; architecture/feasibility approval pending.
+Status: Approved by Siveesh on2026-11-14.
 Date: 2026-11-14. Existing released local milestone:1.0.1(2),32 tests.
 
 ## Intent and selected approach
 
 User requested a Dock interface comparable to the menu-bar launcher, with Compact, Comfortable and Spacious display options. User selected a categorized launcher window on2026-11-14 over a popup matching the menu bar. Implement as an optional mode of the same SK's App Menu app and same running process/catalog. A separate executable would add duplicate-instance and shared-store coordination with no user benefit for this feature.
 
-This document proposes the detailed defaults below; selection of the launcher-window approach is confirmed, but these implementation details are not yet approved. No production changes made for this feature.
+The user verified and approved this design to proceed on2026-11-14, additionally requesting a unique dark-mode-compatible Liquid Glass app icon.
 
 ## Scope and interaction
 
@@ -67,4 +67,8 @@ No new reusable lesson identified in this design phase; lessons bridge reviewed 
 
 ## Independent builder review
 
-Read-only review on2026-11-14 reported “nothing important left unanswered”; same-app lifecycle, density choices and backward-compatible defaults are sufficient for implementation planning. Approval of the detailed addendum remains pending.
+Read-only review on2026-11-14 reported “nothing important left unanswered”; same-app lifecycle, density choices and backward-compatible defaults are sufficient for implementation planning. Detailed addendum approved2026-11-14.
+
+## Approved branding addition
+
+Create an original recognizable multi-layer Icon Composer app icon with source assets and a flattened preview. Verify native compilation and contrast/readability in default/dark/tinted presentation. Reuse the same app identity in Dock, Finder and About. Keep the status-menu glyph legible as a template symbol.

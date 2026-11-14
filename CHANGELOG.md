@@ -35,7 +35,7 @@ All notable project changes are documented here.
 - Disable utility-window restoration; normal launch stays in the menu bar.
 - Add actual menu-row visibility regression;32 tests pass.
 
-## Unreleased — Dock design proposal
+## Historical Dock design preparation
 
 - Drafted optional same-app Dock launcher with shared catalog and Compact/Comfortable/Spacious layouts. Categorized window selected by user; detailed architecture/feasibility approval pending. No product code changed.
 
@@ -49,3 +49,12 @@ All notable project changes are documented here.
 ##1.0.3 (5) —2026-11-14
 
 - Remove distracting category hover tooltips in the menu bar; retain app name/path tooltips.
+
+##1.1.0 (6) —2026-11-14
+
+- Add optional Dock presence and a categorized launcher sharing the existing catalog, visibility, categories and exact-copy launching.
+- Save Compact, Comfortable and Spacious display sizes; support category search, keyboard selection/Return and minimized-window restoration.
+- Keep management opt-in; Open Launcher also works with Dock disabled. Handle delayed scene registration and failed activation policy changes safely.
+- Add original Prism Launcher layered Liquid Glass icon with inspected Default/Dark/Mono appearances.
+- Extend schema1 with an optional presentation block; older catalogs keep all app IDs and preferences. Unknown density strings fall back to Comfortable. No runtime dependencies added.
+- Fix All Applications sidebar selection and minimized launch-error routing during QA.59 tests pass; local ad-hoc package only.

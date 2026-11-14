@@ -1,5 +1,7 @@
 # QA and Performance
 
+Current baseline:1.1.0,59 automated tests pass.
+
 Status: Automated QA passed; native smoke assessment complete with documented manual follow-ups.
 Reviewed: 2026-11-14. See Verification.md for commands, actual results and artifact paths.
 
@@ -44,3 +46,13 @@ Full Xcode suite:37 tests, zero failures (27 core/store and10 app), TEST SUCCEED
 ##1.0.3(5) category tooltip refinement —2026-11-14
 
 User requested disabling category hover tooltips. Removed only the category-heading toolTip assignment; app name/path tooltips and status-icon description remain. Existing approved menu architecture and native API suffice; no new dependency/storage change, design approval or separate unit test needed for this reversible UI-only refinement. Menu rendering regression test passed through Xcode (one focused test). Prior full37-test result remains the1.0.2 baseline; no new full-suite claim. Source review confirms category headings use the default nil tooltip. Dock design remains pending approval.
+
+##1.1.0 Dock and icon qualification
+
+Approved design implemented. Independent review found minimized-launcher error routing skipped restoration; corrected with a failing then passing regression. Native QA found a nil-tag All Applications row could not be selected after a category; replaced it with an explicit selection case and verified category→All restores149 visible entries.
+
+Native isolated runtime verified saved Dock-on startup opens launcher without management, all three densities, five iOS Apps with icons, search yielding the single controlled fixture, Down/Return exact-URL launch, minimized restore via standard application reopen, Dock disable control and explicit launcher access with Dock off. No real installed app was launched by these checks. Exact Dock mouse click is not separately claimed; production reopen handler and standard reopen path were exercised. Full VoiceOver/light appearance remain open.
+
+Prism icon compiled with native actool; Default, Dark and Mono were visually inspected in Icon Composer. Native1024px export retained. No runtime bundle mutation or permission/entitlement expansion. No new performance benchmark claim; density/search inspect149 visible records from isolated store. Some CUA operations were invalidated by external state; repeated fresh observations resolved these without changing privacy settings.
+
+Final full Xcode suite59/59 passes; source/resource integration built on macOS27.2.1 with Xcode27.2/Swift6.4.2. See Verification.md for exact logs/result bundle and final package deployment.

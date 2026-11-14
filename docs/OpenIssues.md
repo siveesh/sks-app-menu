@@ -10,6 +10,6 @@
 
 Resolved: design approvals; recursive discovery; persistent preferences and recovery; static-core test linkage; stale Add/Locate scans; ambiguous Locate; worker overlap; management layout; icon/width refinement (macOS27 explicit image visibility corrected in1.0.1). Broken Python shim worked around with /usr/bin/python3. Strict verifier excludes ignored generated artifacts.
 
-D1: New Dock launcher architecture/feasibility addendum awaits approval. The user's categorized-window choice is confirmed. Detailed size defaults and same-process Dock lifecycle are proposed in the Dock design.
+D1 resolved in1.1.0: user explicitly approved the categorized Dock launcher; optional Dock presence, shared catalog and three saved densities implemented. Native runtime checks and59 automated tests pass.
 
 Native compatibility follow-up: /System/Applications/Passwords.app is MacOSX with CFBundlePackageType XPC!, excluded by current APPL validation; it remains the single installed-scan warning. Confirmed iOS wrappers no longer warn.

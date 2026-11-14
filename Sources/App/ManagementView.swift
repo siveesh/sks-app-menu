@@ -4,6 +4,7 @@ import MenuCore
 
 struct ManagementView: View {
     @Bindable var model: CatalogModel
+    let openLauncher: () -> Void
     @Environment(\.openWindow) private var openWindow
     @State private var search = ""
     @State private var filter = AppFilter.all
@@ -32,6 +33,7 @@ struct ManagementView: View {
     var body: some View {
         VStack(spacing: 0) {
             warnings
+            appearance
             HStack {
                 Picker("Show applications", selection: $filter) {
                     ForEach(AppFilter.allCases) { Text($0.rawValue).tag($0) }
@@ -74,6 +76,21 @@ struct ManagementView: View {
         .confirmationDialog("Archive this catalog and start again?", isPresented: $confirmReset) {
             Button("Archive and Reset", role: .destructive) { Task { await model.resetCatalog() } }
         } message: { Text("The original catalog will be archived. App visibility and category settings will start fresh. Installed apps are unaffected.") }
+    }
+
+    private var appearance: some View {
+        HStack(spacing: 18) {
+            Text("Appearance").font(.headline)
+            Toggle("Show in Dock", isOn: Binding(get: { model.effectiveShowInDock }, set: model.setShowInDock))
+                .toggleStyle(.checkbox)
+            Picker("Launcher size", selection: Binding(get: { model.document.presentation.launcherDensity }, set: model.setLauncherDensity)) {
+                ForEach(LauncherDensity.allCases) { Text($0.title).tag($0) }
+            }.frame(maxWidth: 260)
+            Spacer()
+            Button("Open Launcher…", action: openLauncher)
+        }
+        .padding(.horizontal).padding(.vertical, 10)
+        .disabled(!model.canEdit)
     }
 
     private var applicationList: some View {
@@ -161,6 +178,11 @@ struct ManagementView: View {
     }
 
     @ViewBuilder private var warnings: some View {
+        if let warning = model.dockWarning {
+            Label(warning, systemImage: "exclamationmark.triangle")
+                .font(.callout).padding().frame(maxWidth: .infinity, alignment: .leading)
+                .background(.orange.opacity(0.12))
+        }
         if let warning = model.recoveryWarning {
             VStack(alignment: .leading, spacing: 10) {
                 Label("Catalog is read-only", systemImage: "exclamationmark.triangle").fontWeight(.semibold)

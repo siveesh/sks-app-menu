@@ -24,6 +24,9 @@ final class CatalogModel {
     private(set) var recoveryWarning: String?
     private(set) var saveWarning: String?
     private(set) var scanWarnings: [String] = []
+    private(set) var effectiveShowInDock = false
+    private(set) var dockWarning: String?
+    @ObservationIgnored var applyDockPresence: ((Bool) -> Bool)?
     var operationError: String?
     var selectedAppID: UUID?
     private(set) var relocationConfirmation: String?
@@ -61,6 +64,18 @@ final class CatalogModel {
 
     var canEdit: Bool { !isLoading && !isReadOnly }
     var visibleApps: [AppRecord] { document.apps.filter { !$0.hidden && $0.availability != .missing } }
+    func launcherApps(category: String?, query: String) -> [AppRecord] {
+        visibleApps.filter { app in
+            let name = categoryName(for: app)
+            return (category == nil || name == category) &&
+                (query.isEmpty || app.name.localizedCaseInsensitiveContains(query) ||
+                 name.localizedCaseInsensitiveContains(query) || app.url.path.localizedCaseInsensitiveContains(query))
+        }.sorted {
+            let order = $0.name.localizedStandardCompare($1.name)
+            return order == .orderedSame ? $0.url.path < $1.url.path : order == .orderedAscending
+        }
+    }
+
     func categoryName(for app: AppRecord) -> String {
         CategoryResolver.name(for: app.categoryOverride ?? app.automaticCategory, custom: document.categories)
     }
@@ -85,6 +100,7 @@ final class CatalogModel {
             recoveryWarning = "Your catalog could not be loaded. The original is preserved and changes are disabled. \(error.localizedDescription)"
         }
         isLoading = false
+        if !isReadOnly { applyLoadedPresentation() }
         publish()
         if !isReadOnly { refresh() }
     }
@@ -167,6 +183,36 @@ final class CatalogModel {
         refreshPending = false
         discardCurrentScan = false
         isScanning = false
+    }
+
+    /// Policy changes are synchronous on MainActor; failed changes never become saved preferences.
+    func setShowInDock(_ enabled: Bool) {
+        guard canEdit else { return }
+        guard transitionDock(to: enabled) else { return }
+        guard document.presentation.showInDock != enabled else { publish(); return }
+        document.presentation.showInDock = enabled
+        changed()
+    }
+
+    func setLauncherDensity(_ density: LauncherDensity) {
+        guard canEdit, document.presentation.launcherDensity != density else { return }
+        document.presentation.launcherDensity = density
+        changed()
+    }
+
+    private func applyLoadedPresentation() {
+        _ = transitionDock(to: document.presentation.showInDock)
+    }
+
+    private func transitionDock(to enabled: Bool) -> Bool {
+        guard applyDockPresence?(enabled) ?? true else {
+            dockWarning = "macOS could not change Dock visibility. The previous Dock state is still in effect. Try again, or quit and reopen the app."
+            publish()
+            return false
+        }
+        effectiveShowInDock = enabled
+        dockWarning = nil
+        return true
     }
 
     func setHidden(_ hidden: Bool, id: UUID) {

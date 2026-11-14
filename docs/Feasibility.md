@@ -85,3 +85,7 @@ Read-only installed inspection confirms five real iOS wrappers with root-level p
 ##1.0.3(5) category tooltip refinement —2026-11-14
 
 User requested disabling category hover tooltips. Removed only the category-heading toolTip assignment; app name/path tooltips and status-icon description remain. Existing approved menu architecture and native API suffice; no new dependency/storage change, design approval or separate unit test needed for this reversible UI-only refinement. Menu rendering regression test passed through Xcode (one focused test). Prior full37-test result remains the1.0.2 baseline; no new full-suite claim. Source review confirms category headings use the default nil tooltip. Dock design remains pending approval.
+
+## Dock addendum approved —2026-11-14
+
+Siveesh verified and approved the categorized Dock launcher design and requested a unique Liquid Glass/dark-mode-compatible app icon. The linked Dock design is now approved; proceed to implementation and measured QA. Optional Dock remains off until the user enables it. Existing app/catalog protections and menu icon/tooltip corrections remain required.

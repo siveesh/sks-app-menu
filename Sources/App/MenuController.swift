@@ -30,7 +30,10 @@ final class MenuController: NSObject, NSMenuDelegate {
     private func invalidate() {
         needsRebuild = true
         if !isTracking { rebuild() }
-        if model.operationError != nil { windows.open("manage") }
+        if model.operationError != nil {
+            // A minimized launcher still owns the error alert; restore it so recovery is visible.
+            windows.open(windows.isLauncherVisible ? "launcher" : "manage")
+        }
     }
 
     func menuWillOpen(_ menu: NSMenu) {
@@ -54,6 +57,7 @@ final class MenuController: NSObject, NSMenuDelegate {
         if model.isLoading { message("Loading…") }
         if model.isScanning { message("Refreshing…") }
         if model.isReadOnly { command("Recover Catalog…", action: #selector(manage)) }
+        if model.dockWarning != nil { command("Dock Visibility Notice…", action: #selector(manage)) }
         if model.saveWarning != nil { command("Unsaved Changes…", action: #selector(manage)) }
         if !model.scanWarnings.isEmpty { command("Refresh Warnings…", action: #selector(manage)) }
         let apps = model.visibleApps
@@ -79,6 +83,10 @@ final class MenuController: NSObject, NSMenuDelegate {
             menu.addItem(item)
         }
         if apps.isEmpty && !model.isLoading { message("No visible applications") }
+        menu.addItem(.separator())
+        command("Open Launcher…", action: #selector(openLauncher), key: "l")
+        command("Show in Dock", action: #selector(toggleDock), enabled: model.canEdit)
+        menu.items.last?.state = model.effectiveShowInDock ? .on : .off
         menu.addItem(.separator())
         command("Add Application…", action: #selector(add), key: "o", enabled: model.canEdit)
         command("Manage Applications…", action: #selector(manage), key: ",")
@@ -128,6 +136,8 @@ final class MenuController: NSObject, NSMenuDelegate {
               let app = model.document.apps.first(where: { $0.id == id }) else { return }
         model.launch(app)
     }
+    @objc private func openLauncher() { windows.open("launcher") }
+    @objc private func toggleDock() { model.setShowInDock(!model.effectiveShowInDock) }
     @objc private func add() { windows.open("manage"); model.chooseApplication() }
     @objc private func manage() { windows.open("manage") }
     @objc private func refresh() { model.refresh() }

@@ -1,44 +1,35 @@
 # Session Handoff
 
-Updated2026-11-14. Product SK's App Menu1.0.2(4). Branch feature/native-rebuild. No merge/push.
+Updated2026-11-14. SK's App Menu1.1.0(6), feature/native-rebuild. No merge/push. All five local milestone phases complete; architecture/feasibility and Dock design explicitly approved.
 
-## Completed
+## Summary
 
-Architecture/Feasibility explicitly approved by user, then native rebuild implemented. Core recursive discovery finds real Photoshop2027 and DaVinci Resolve nested apps. Management includes manual add, hide/restore, persistent/custom categories, missing-app Locate and recovery. Native menu has app icons installed before layout, concise labels, bounded long names/full tooltips and shortcuts, per user's refinement.37 tests pass; Release local DMG created/verified and running local test installation.
+Optional same-process Dock launcher delivered with categorized sidebar, search, shared catalog/preferences, exact-copy launch, keyboard selection/Return and Compact/Comfortable/Spacious density. Show in Dock is off by default; Open Launcher works independently. Enabling/reopen restores singleton launcher, including minimized. Management opens only when requested. Existing menu image visibility/category-tooltip behavior and iOS Apps classification preserved. Original Prism Launcher layered Icon Composer asset supports native glass and Default/Dark/Mono appearances.
 
-## Artifacts and commands
+## Files changed
 
-- Build/Testing/SK's App Menu.app — current running Release-based local test app, copied from DMG.
-- Release/SKsAppMenu-1.0.2-local.dmg — checksum verified; ad-hoc/runtime signed, not notarized.
-- Build/Evidence — retained raw logs; Verification.md documents actual evidence.
-- `./script/build_and_run.sh --verify` — canonical Debug build/run.
-- `./scripts/test.sh` — Xcode full suite; `swift test` — core only.
-- `./scripts/package.sh <new-artifact-version>` — refuses same-version overwrite.
+Core presentation preferences/decoder and compatibility tests; native Dock controller/window relay/launcher; model/management/menu controls; icon SVG/JSON/preview and About; project metadata1.1.0/6; Help, README, changelog and governance records. See DockCoreReport.md, DockUIReport.md and IconDesign.md for implementation details.
 
-## Preferences and recoverability
+## Build and test result
 
-Normal storage ~/Library/Application Support/com.siveesh.sksappmenu. Preview RuntimeQA settings were copied only because normal catalog did not yet exist, preserving one hidden app and one category override. No existing user catalog was overwritten. Original launcher/apps untouched. Package staging cleaned, DMG detached; QA settings and evidence retained intentionally. Use /usr/bin/python3 for governance because default pyenv shim is broken.
+Debug and Release builds succeeded on macOS27.2.1, Xcode27.2/Swift6.4.2. Final full Xcode suite59 tests (37core/store,22app), zero failures. Result Test-SKsAppMenu-2026.11.14_12-44-22-+0300.xcresult. Raw logs Build/Evidence/dock-final-tests.log and dock-package.log. Native isolated QA verified all densities, category→All, iOS Apps5/icons, search, controlled Down/Return launch, minimized reopen, Dock disable and launcher access with Dock off. Default/Dark/Mono icon previews inspected in Icon Composer. Exact Dock mouse click, light launcher appearance and full VoiceOver are not claimed.
 
-## Remaining work
+## Installed build
 
-User acceptance, full VoiceOver/light-mode/pointer/Help/About manual qualification, macOS27.0 runtime testing, public licence selection and optional Developer ID/notarization. Do not claim public-distribution eligibility from ad-hoc verification. No production signing credentials inspected or provisioned. Existing native-control session had external-state invalidations; its incomplete picker round-trip is not a product failure claim.
+Build/Testing/SK's App Menu.app copied from read-only mounted Release/SKsAppMenu-1.1.0-local.dmg; checksum VALID, strict signature passed, image detached. Installed version1.1.0/6; process18736 at exact testing executable with no launch arguments. Signature ad-hoc/runtime, not Developer ID signed or notarized. SHA256 and exact commands/evidence in Verification.md.
 
-## Lessons and decisions
+## Preferences and cleanup
 
-Recorded genuine issues: cancellation boundaries, root bundle traversal, unique unmatched relocation, current Apple category identifiers, static-core hosted-test linkage, stale Add/Locate snapshots, settings recovery state, and generated-artifact governance false positives. See ImplementationLedger.md, CoreImplementationReport.md, UIImplementationReport.md and global lessons. Current workspace retained on feature branch; checked-in generated Xcode project builds without XcodeGen dependency at build time.
+Normal Application Support catalog preserved: all149 preexisting UUID/hidden/category choices equal after launch. No isolated QA fixture transferred. Dock off/Comfortable defaults saved. Previous test app archived in Build/Previous-1.0.3-build5. Package staging removed by trap; prior retained builds/packages, current products, evidence and isolated Temporary/DockRuntimeQA intentionally retained for recovery/debug. No installed application or global Dock/appearance/privacy preference altered.
 
-Latest correction: application menu rows explicitly set preferredImageVisibility=.visible for macOS27. All utility scenes disable restoration. The final test copy was relaunched normally with no --manage flag (PID9097 observed at the Build/Testing executable path). Previous local test app retained at Build/Previous-1.0.0; settings untouched. Native windowless utility has no selectable CUA window surface; no new screenshot-based icon claim is made.37 automated tests and Release/package verification pass.
+## Documentation and diagnostics
 
-## Current next milestone: Dock launcher design
+Help/README/Architecture/Feasibility/Snapshot/QA/Verification/Roadmap/Issues/Changelog updated. Actual lessons recorded globally: explicit All selection identity, minimized error restoration and Icon Composer front-to-back layers. /usr/bin/python3 required because default pyenv shim is broken. Xcode emits existing host simulator/autoShortcut/status-item shutdown diagnostics and skipped AppIntents extraction; hdiutil commands deprecated but passed. No Swift compiler errors.
 
-User selected categorized launcher window over menu-style popup. Review docs/superpowers/specs/2026-11-14-dock-launcher-design.md and the Architecture/Feasibility addenda. Proposed same-app optional Dock (default off), shared preferences/catalog and three density presets. Await explicit detailed design approval before production code. Existing1.0.2 app/package unchanged and still the current verified build. Next after approval: writing-plans, implementation-specific macOS retrieval, then code/test/runtime/package. No genuine lesson to add during this design-only phase.
+## Known issues, risks and next step
 
-Latest scanner milestone: confirmed iOS wrappers shown in iOS Apps,149 installed apps/one unrelated native warning; hidden/category preferences preserved across upgrade. New default applies without rewriting existing overrides. Dock launcher design is still pending approval; no Dock production code added.
+Public Developer ID/notarization and licence selection remain; full VoiceOver/light appearance/macOS27.0 qualification pending. Passwords.app is native MacOSX/XPC!, excluded by APPL validation and still warns; it is not an iOS app. Old app versions can ignore/drop the optional presentation block, so retain latest build for saved appearance. No new runtime dependency, entitlement, network service or menu performance guarantee. User acceptance of the delivered Dock launcher/icon is next; there is no pending design approval.
 
-Final deployment evidence for1.0.2(4): Release build passed; final local DMG checksum verified, mounted read-only, copied to Build/Testing, strict codesign verification passed and DMG detached. App version/build read back as1.0.2/4, process12766 observed at the testing executable with no launch arguments. Saved catalog contains five iOS Apps records, and every previously saved visibility/category choice compared equal before/after upgrade. Settings were not reset or replaced. Previous local test build retained in Build/Previous-1.0.2-build3, previous1.0.1 in Build/Previous-1.0.1. Staging directories removed by package trap. All packages remain local ad-hoc/runtime builds, not notarized.
+## Useful commands
 
-##1.0.3(5) category tooltip refinement —2026-11-14
-
-User requested disabling category hover tooltips. Removed only the category-heading toolTip assignment; app name/path tooltips and status-icon description remain. Existing approved menu architecture and native API suffice; no new dependency/storage change, design approval or separate unit test needed for this reversible UI-only refinement. Menu rendering regression test passed through Xcode (one focused test). Prior full37-test result remains the1.0.2 baseline; no new full-suite claim. Source review confirms category headings use the default nil tooltip. Dock design remains pending approval.
-
-1.0.3(5) deployment verified: Release BUILD SUCCEEDED; local DMG checksum valid; strict packaged-app signature verification passed. Mounted image copied to Build/Testing, detached, and normal menu-only launch observed as process13554; Info.plist reports1.0.3. Previous test app retained in Build/Previous-1.0.2-build4. No preference reset. Raw logs retained in Build/Evidence/sks-103-*.log. Category tooltips removed by source inspection; focused menu regression passes. Full37-test baseline remains1.0.2, not rerun for this styling-only change.
+`./script/build_and_run.sh --verify` canonical Debug build/run. `./scripts/test.sh` full suite with isolated store; `swift test` core. `./scripts/package.sh <new-version>` refuses existing artifact. Do not run simultaneous Xcode builds/tests against DerivedData. Use isolated --store-directory for QA, never replace normal catalog with QA data.
