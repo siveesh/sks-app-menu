@@ -75,7 +75,6 @@ final class MenuController: NSObject, NSMenuDelegate {
                 child.preferredImageVisibility = .visible
                 submenu.addItem(child)
             }
-            item.toolTip = category
             item.submenu = submenu
             menu.addItem(item)
         }

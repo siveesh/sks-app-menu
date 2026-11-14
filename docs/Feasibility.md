@@ -81,3 +81,7 @@ Recommend the same app/process with native SwiftUI launcher and AppKit dynamic a
 ## iOS-on-Mac layout correction —2026-11-14
 
 Read-only installed inspection confirms five real iOS wrappers with root-level payload Info.plist and executable. Native Foundation can read those files; missing macOS Contents/Info.plist is not proof of inaccessible data. Use LSRequiresIPhoneOS/CFBundleSupportedPlatforms iPhoneOS markers, canonical containment and the outer app URL. No new dependency/permissions. Apple Info.plist and bundle-structure references: https://developer.apple.com/documentation/bundleresources/information-property-list and https://developer.apple.com/library/archive/documentation/CoreFoundation/Conceptual/CFBundles/BundleTypes/BundleTypes.html. Direct user-approved compatibility fix, independent of pending Dock addition.
+
+##1.0.3(5) category tooltip refinement —2026-11-14
+
+User requested disabling category hover tooltips. Removed only the category-heading toolTip assignment; app name/path tooltips and status-icon description remain. Existing approved menu architecture and native API suffice; no new dependency/storage change, design approval or separate unit test needed for this reversible UI-only refinement. Menu rendering regression test passed through Xcode (one focused test). Prior full37-test result remains the1.0.2 baseline; no new full-suite claim. Source review confirms category headings use the default nil tooltip. Dock design remains pending approval.

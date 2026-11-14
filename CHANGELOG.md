@@ -45,3 +45,7 @@ All notable project changes are documented here.
 - Preserve outer launch/icon identity, visibility and category overrides; keep genuine validation warnings.
 - Preserve legacy custom categories already named iOS Apps.
 - Add five compatibility tests;37 total pass. Refresh bundled Help. Dock feature remains pending design approval.
+
+##1.0.3 (5) —2026-11-14
+
+- Remove distracting category hover tooltips in the menu bar; retain app name/path tooltips.

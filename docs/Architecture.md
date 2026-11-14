@@ -107,3 +107,7 @@ The user selected a categorized launcher window. See [Dock launcher design](supe
 ## Authorized iOS discovery correction —2026-11-14
 
 User requested confirmed iOS-on-Mac bundles in iOS Apps rather than warning entries. Resolve flat iOS metadata/executables and Wrapper/WrappedBundle payload metadata, require positive iOS markers and APPL/executable validation, enforce payload containment, keep outer installed URL for launch/icon/identity, and preserve manual category/visibility overrides. Missing/unreadable/ambiguous/non-iOS wrappers continue to warn. This scanner compatibility correction is authorized by the direct user request; Dock design approval remains separate/pending.
+
+##1.0.3(5) category tooltip refinement —2026-11-14
+
+User requested disabling category hover tooltips. Removed only the category-heading toolTip assignment; app name/path tooltips and status-icon description remain. Existing approved menu architecture and native API suffice; no new dependency/storage change, design approval or separate unit test needed for this reversible UI-only refinement. Menu rendering regression test passed through Xcode (one focused test). Prior full37-test result remains the1.0.2 baseline; no new full-suite claim. Source review confirms category headings use the default nil tooltip. Dock design remains pending approval.
