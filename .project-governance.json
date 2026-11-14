@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "project_name": "SK's App Menu",
+  "bundle_identifier": "com.siveesh.sksappmenu",
+  "platform": "macOS",
+  "initialized": "2026-11-14",
+  "governance": {
+    "orchestrator": "required",
+    "phase": "feasibility",
+    "approval_status": "architecture-and-feasibility-proposed"
+  }
+}

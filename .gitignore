@@ -1,0 +1,33 @@
+# Apple and Xcode
+.DS_Store
+DerivedData/
+*.xcuserstate
+*.xcscmblueprint
+*.xccheckout
+xcuserdata/
+
+# Swift Package Manager
+.build/
+.swiftpm/
+Packages/
+
+# Generated products and temporary files
+Build/
+Release/
+Temporary/
+dist/
+*.app
+*.dmg
+*.pkg
+*.xcarchive
+*.dSYM
+*.dSYM.zip
+*.log
+
+# Credentials and local configuration
+.env
+.env.*
+*.pem
+*.p12
+*.mobileprovision
+
