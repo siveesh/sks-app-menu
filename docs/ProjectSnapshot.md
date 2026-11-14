@@ -12,3 +12,5 @@
 Recursive real vendor discovery verified. Native management supports manual selection, hide/restore, categories, missing-app Locate and recovery. User requested icons and narrower menu; implemented in current build. Original launcher untouched. Preview preferences preserved to normal local storage. Next: user acceptance; remaining manual qualification and optional public signing/licensing.
 
 Latest correction: application menu rows explicitly set preferredImageVisibility=.visible for macOS27. All utility scenes disable restoration. The final test copy was relaunched normally with no --manage flag (PID9097 observed at the Build/Testing executable path). Previous local test app retained at Build/Previous-1.0.0; settings untouched. Native windowless utility has no selectable CUA window surface; no new screenshot-based icon claim is made.32 automated tests and Release/package verification pass.
+
+Next feature status: Dock launcher design/feasibility proposed, user chose categorized window. Detailed approval pending. No source/build/product changes for this feature. Current verified app remains1.0.1.

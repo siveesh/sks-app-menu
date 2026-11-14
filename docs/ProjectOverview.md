@@ -32,3 +32,7 @@ On 2026-11-14 the user selected the native rebuild design and the name SK's App 
 ## Constraints and success
 
 User preferences survive refresh/restart; bundles remain read-only; traversal stops at app boundaries; incomplete scans do not erase preferences. Never overwrite the original launcher. Test evidence required before claiming compatibility. Signing credentials and public licensing decisions are not yet available/selected.
+
+## Requested next feature
+
+Optional Dock presence with categorized launcher window (user-selected approach), shared catalog and Compact/Comfortable/Spacious layouts. Detailed design proposed for approval; no production changes yet.

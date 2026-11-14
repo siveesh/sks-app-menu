@@ -9,6 +9,8 @@
     "phase": "documentation",
     "approval_status": "approved",
     "approved": "2026-11-14",
-    "milestone": "1.0.1-local"
+    "milestone": "1.0.1-local",
+    "pending_feature": "dock-launcher-design",
+    "pending_feature_approval": "proposed"
   }
 }

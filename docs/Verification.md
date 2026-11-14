@@ -62,3 +62,9 @@ User reported default management-window opening and absent app icons despite ass
 Sources: https://developer.apple.com/documentation/appkit/nsmenuitem/preferredimagevisibility and https://developer.apple.com/documentation/swiftui/scene/restorationbehavior(_:). No new framework, entitlement or storage change. Release version1.0.1, build2. Logs retained in Build/Evidence. Native startup verification and package results are appended after observation.
 
 Final1.0.1 outcome: Release build succeeded; Release/SKsAppMenu-1.0.1-local.dmg created/checksum verified, mounted read-only and detached. Packaged app strict signature passed; previous local test app archived to Build/Previous-1.0.0 and new app placed at Build/Testing. Process9097 observed with no launch arguments; bundle version1.0.1. Normal Application Support catalog was not modified by deployment. CUA could not bind a window surface to the menu-only app (timeout); functional image-policy verification is the actual NSMenu regression, not an unobserved screenshot. Logs copied to Build/Evidence/sks-101-*.log.
+
+## Dock design preparation —2026-11-14
+
+Read existing app lifecycle/catalog/persistence. Verified Apple's activation policy, Dock reopen and SwiftUI launch/restore documentation. User selected categorized window. Design-only work: no new build, test, runtime or installation performed. Current1.0.1 evidence remains unchanged. Structural governance checks run before design handoff; they do not certify future Dock behavior.
+
+Dock design builder check: no important unanswered planning questions. Strict architecture and feasibility checks each passed with zero warnings. Documentation hook checked at commit. No production implementation or new product validation claimed.

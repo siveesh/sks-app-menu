@@ -34,3 +34,7 @@ All notable project changes are documented here.
 - Explicitly request visible app menu images using the macOS27 API.
 - Disable utility-window restoration; normal launch stays in the menu bar.
 - Add actual menu-row visibility regression;32 tests pass.
+
+## Unreleased — Dock design proposal
+
+- Drafted optional same-app Dock launcher with shared catalog and Compact/Comfortable/Spacious layouts. Categorized window selected by user; detailed architecture/feasibility approval pending. No product code changed.
