@@ -46,17 +46,20 @@ public enum LauncherDensity: String, CaseIterable, Codable, Sendable, Identifiab
 public struct PresentationPreferences: Codable, Sendable, Equatable {
     public var showInDock: Bool
     public var launcherDensity: LauncherDensity
+    public var hideRefreshWarnings: Bool
 
-    public init(showInDock: Bool = false, launcherDensity: LauncherDensity = .comfortable) {
+    public init(showInDock: Bool = false, launcherDensity: LauncherDensity = .comfortable, hideRefreshWarnings: Bool = false) {
         self.showInDock = showInDock
         self.launcherDensity = launcherDensity
+        self.hideRefreshWarnings = hideRefreshWarnings
     }
 
-    private enum CodingKeys: String, CodingKey { case showInDock, launcherDensity }
+    private enum CodingKeys: String, CodingKey { case showInDock, launcherDensity, hideRefreshWarnings }
 
     public init(from decoder: any Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         showInDock = try container.decodeIfPresent(Bool.self, forKey: .showInDock) ?? false
         launcherDensity = try container.decodeIfPresent(LauncherDensity.self, forKey: .launcherDensity) ?? .comfortable
+        hideRefreshWarnings = try container.decodeIfPresent(Bool.self, forKey: .hideRefreshWarnings) ?? false
     }
 }

@@ -89,3 +89,7 @@ User requested disabling category hover tooltips. Removed only the category-head
 ## Dock addendum approved —2026-11-14
 
 Siveesh verified and approved the categorized Dock launcher design and requested a unique Liquid Glass/dark-mode-compatible app icon. The linked Dock design is now approved; proceed to implementation and measured QA. Optional Dock remains off until the user enables it. Existing app/catalog protections and menu icon/tooltip corrections remain required.
+
+## Refresh warning preference —2026-11-14
+
+Existing native Toggle/NSMenuItem and Observable model can share the current atomic catalog persistence. Add a defaulted optional boolean; old catalogs decode safely and malformed values remain protected. Reuse current AppKit/SwiftUI APIs, no dependencies/permissions or new Apple API assumptions. Direct user request authorizes this reversible extension within approved architecture. Session-only dismissal would repeat after refresh/restart; per-warning ignores add unnecessary identity/maintenance complexity for this request.

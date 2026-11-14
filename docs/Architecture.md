@@ -115,3 +115,7 @@ User requested disabling category hover tooltips. Removed only the category-head
 ## Dock addendum approved —2026-11-14
 
 Siveesh verified and approved the categorized Dock launcher design and requested a unique Liquid Glass/dark-mode-compatible app icon. The linked Dock design is now approved; proceed to implementation and measured QA. Optional Dock remains off until the user enables it. Existing app/catalog protections and menu icon/tooltip corrections remain required.
+
+## Refresh warning visibility —2026-11-14
+
+Direct user-authorized small preference extension: provide a persistent, reversible Hide Refresh Warnings option for the menu and Dock launcher. Keep raw diagnostics available in Manage Applications; suppression affects scan notices only. Preserve save/recovery/Dock/launch errors and existing identities/preferences. Builder default: hideRefreshWarnings=false so existing behavior remains until changed. Prefer one shared boolean in the schema1 optional presentation block over a session-only dismissal or per-warning rules. No scanner behavior or app validation changes.

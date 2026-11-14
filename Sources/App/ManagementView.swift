@@ -35,6 +35,13 @@ struct ManagementView: View {
             warnings
             appearance
             HStack {
+                Toggle("Hide Refresh Warnings", isOn: Binding(get: { model.document.presentation.hideRefreshWarnings }, set: model.setHideRefreshWarnings))
+                    .toggleStyle(.checkbox).disabled(!model.canEdit)
+                Text("Hide notices in the menu and launcher. Details remain above.")
+                    .font(.caption).foregroundStyle(.secondary)
+                Spacer()
+            }.padding(.horizontal).padding(.bottom, 10)
+            HStack {
                 Picker("Show applications", selection: $filter) {
                     ForEach(AppFilter.allCases) { Text($0.rawValue).tag($0) }
                 }.pickerStyle(.segmented).frame(maxWidth: 420)

@@ -28,6 +28,12 @@ Select a category for a lasting override. Use Automatic Category restores classi
 
 Missing apps remain in Manage Applications with their preferences. Choose Locate Application… to reconnect a moved app. Separate copies at different locations remain independent, even when they share a name or bundle identifier. Duplicate names in the menu include their location. An inaccessible scan location retains its previous entries as Not verified; check the refresh warnings before assuming an app was removed.
 
+## Refresh warnings
+
+Choose Hide Refresh Warnings in the menu-bar menu or Manage Applications to hide scan notices from the menu and Dock launcher. You can also choose Hide on the launcher's refresh-warning banner. The setting is remembered across refreshes and restarts. Clear it to show notices again.
+
+Refresh warning details remain in the collapsed Refresh warnings section at the top of Manage Applications. Hiding them does not change scanning or application validation. Storage, recovery, Dock, and launch-error notices still appear.
+
 ## Saving and recovery
 
 Preferences are stored locally in your Application Support folder under com.siveesh.sksappmenu. There are no accounts, analytics, or network services. An unsaved-changes warning means the latest changes are still in memory; use Retry and resolve the reported storage problem before quitting.

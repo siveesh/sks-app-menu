@@ -17,6 +17,30 @@ final class DockLauncherTests: XCTestCase {
 
 @MainActor
 final class DockLifecycleTests: XCTestCase {
+    func testHiddenScanWarningsRetainDiagnosticsAndKeepSaveFailureVisible() async {
+        let store = DockTestStore(document: CatalogDocument(presentation: PresentationPreferences(hideRefreshWarnings: true)), failSave: true)
+        let model = CatalogModel(store: store, roots: [], scanner: { _, _, _ in ScanResult(warnings: ["Unreadable fixture"]) })
+        await model.start()
+        let deadline = ContinuousClock.now.advanced(by: .seconds(3))
+        while model.isScanning && ContinuousClock.now < deadline { await Task.yield() }
+        XCTAssertEqual(model.scanWarnings, ["Unreadable fixture"])
+        XCTAssertTrue(model.visibleScanWarnings.isEmpty)
+        XCTAssertNil(model.launcherWarning)
+        model.setLauncherDensity(.compact)
+        let saved = await model.finishSaving()
+        XCTAssertFalse(saved)
+        XCTAssertNotNil(model.saveWarning)
+        XCTAssertNotNil(model.recoveryWarning)
+        XCTAssertEqual(model.launcherWarning, model.recoveryWarning, "Protected-data recovery has priority over the save notice")
+        let menu = MenuController(model: model, windows: WindowActionRelay(activate: {}))
+        XCTAssertNotNil(menu.menu.item(withTitle: "Unsaved Changes…"))
+        XCTAssertNil(menu.menu.item(withTitle: "Refresh Warnings…"))
+        XCTAssertTrue(model.isReadOnly)
+        model.setHideRefreshWarnings(false)
+        XCTAssertTrue(model.document.presentation.hideRefreshWarnings, "Protected catalogs must reject preference edits")
+        model.stop()
+    }
+
     func testMenuLaunchFailureRestoresMinimizedLauncherForRecovery() async {
         let model = CatalogModel(store: DockTestStore(), roots: [], scanner: { _, _, _ in ScanResult() })
         await model.start()

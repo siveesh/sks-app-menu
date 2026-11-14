@@ -1,35 +1,31 @@
 # Session Handoff
 
-Updated2026-11-14. SK's App Menu1.1.0(6), feature/native-rebuild. No merge/push. All five local milestone phases complete; architecture/feasibility and Dock design explicitly approved.
+Updated2026-11-14. SK's App Menu1.1.1(7), feature/native-rebuild; no merge/push. Latest user request: option to ignore/hide refresh warnings. Delivered as a reversible saved visibility preference within the approved native architecture.
 
-## Summary
+## Summary and files changed
 
-Optional same-process Dock launcher delivered with categorized sidebar, search, shared catalog/preferences, exact-copy launch, keyboard selection/Return and Compact/Comfortable/Spacious density. Show in Dock is off by default; Open Launcher works independently. Enabling/reopen restores singleton launcher, including minimized. Management opens only when requested. Existing menu image visibility/category-tooltip behavior and iOS Apps classification preserved. Original Prism Launcher layered Icon Composer asset supports native glass and Default/Dark/Mono appearances.
-
-## Files changed
-
-Core presentation preferences/decoder and compatibility tests; native Dock controller/window relay/launcher; model/management/menu controls; icon SVG/JSON/preview and About; project metadata1.1.0/6; Help, README, changelog and governance records. See DockCoreReport.md, DockUIReport.md and IconDesign.md for implementation details.
+PresentationPreferences adds default-false hideRefreshWarnings with strict decoding. CatalogModel derives filtered scan notices and launcher priority; guarded edits use existing atomic revision/save pipeline. Menu/Manage expose Hide Refresh Warnings; launcher refresh banner has Hide. Management keeps raw diagnostics available in collapsed Refresh warnings section. Core/menu/model tests, Help/README/version/project and governance records updated. Scanning/validation, app IDs/hide/category choices, Dock/density and important notices remain intact.
 
 ## Build and test result
 
-Debug and Release builds succeeded on macOS27.2.1, Xcode27.2/Swift6.4.2. Final full Xcode suite59 tests (37core/store,22app), zero failures. Result Test-SKsAppMenu-2026.11.14_12-44-22-+0300.xcresult. Raw logs Build/Evidence/dock-final-tests.log and dock-package.log. Native isolated QA verified all densities, category→All, iOS Apps5/icons, search, controlled Down/Return launch, minimized reopen, Dock disable and launcher access with Dock off. Default/Dark/Mono icon previews inspected in Icon Composer. Exact Dock mouse click, light launcher appearance and full VoiceOver are not claimed.
+Debug build/run succeeded. Final62 Xcode tests pass (38core/store,24app), zero failures; result Test-SKsAppMenu-2026.11.14_12-51-40-+0300.xcresult. Raw logs Build/Evidence/warnings-*.log. RED verified absent persistence/action; GREEN includes real-store restart/re-enable and critical recovery visibility. Native isolated UI confirmed hidden banner, checked setting and retained management warning disclosure. Manual pointer round-trip was interrupted by external state/noWindowsAvailable; automated native menu actions cover hide/re-enable. No broad manual accessibility/appearance qualification claimed.
 
-## Installed build
+## Installed build and release evidence
 
-Build/Testing/SK's App Menu.app copied from read-only mounted Release/SKsAppMenu-1.1.0-local.dmg; checksum VALID, strict signature passed, image detached. Installed version1.1.0/6; process18736 at exact testing executable with no launch arguments. Signature ad-hoc/runtime, not Developer ID signed or notarized. SHA256 and exact commands/evidence in Verification.md.
+Current designated test app: Build/Testing/SK's App Menu.app. New local artifact Release/SKsAppMenu-1.1.1-local.dmg; checksum VALID, strict signature verified, image detached. Installed1.1.1/7 process20258 observed at exact testing path without arguments. All149 saved visibility/category choices and Dock/density preserved; new hide option defaultsfalse. Details in Verification.md. Local ad-hoc/runtime signing only, not notarized or Developer ID signed.
 
-## Preferences and cleanup
+## Cleanup and data protection
 
-Normal Application Support catalog preserved: all149 preexisting UUID/hidden/category choices equal after launch. No isolated QA fixture transferred. Dock off/Comfortable defaults saved. Previous test app archived in Build/Previous-1.0.3-build5. Package staging removed by trap; prior retained builds/packages, current products, evidence and isolated Temporary/DockRuntimeQA intentionally retained for recovery/debug. No installed application or global Dock/appearance/privacy preference altered.
+Previous designated test app archived rather than deleted. Package staging cleaned by trap and image detached after verification. Current/prior retained products, evidence and isolated QA stores intentionally retained for recovery. Normal Application Support catalog never replaced with QA data. No installed app, global Dock/appearance/privacy setting or original launcher changed.
 
-## Documentation and diagnostics
+## Documentation, diagnostics and lessons
 
-Help/README/Architecture/Feasibility/Snapshot/QA/Verification/Roadmap/Issues/Changelog updated. Actual lessons recorded globally: explicit All selection identity, minimized error restoration and Icon Composer front-to-back layers. /usr/bin/python3 required because default pyenv shim is broken. Xcode emits existing host simulator/autoShortcut/status-item shutdown diagnostics and skipped AppIntents extraction; hdiutil commands deprecated but passed. No Swift compiler errors.
+Architecture/Feasibility record directly authorized small extension; Help/README/QA/Verification/Snapshot/Roadmap/Changelog/ImplementationLedger updated. Global lesson records test-fixture error-state priority correction. Existing host simulator/autoShortcut/status-item test shutdown messages and skipped AppIntents metadata extraction; hdiutil deprecated commands succeed. Default Python shim broken; use /usr/bin/python3.
 
-## Known issues, risks and next step
+## Known issues and next step
 
-Public Developer ID/notarization and licence selection remain; full VoiceOver/light appearance/macOS27.0 qualification pending. Passwords.app is native MacOSX/XPC!, excluded by APPL validation and still warns; it is not an iOS app. Old app versions can ignore/drop the optional presentation block, so retain latest build for saved appearance. No new runtime dependency, entitlement, network service or menu performance guarantee. User acceptance of the delivered Dock launcher/icon is next; there is no pending design approval.
+User acceptance of1.1.1. Public licence/signing/notarization, macOS27.0 runtime, full VoiceOver/light appearance remain open. Passwords.app still produces a native XPC!/APPL validation warning when notices enabled; it is not an iOS app. Hidden notices remain available in Manage Applications; clear Hide Refresh Warnings to show again. No pending design approval.
 
-## Useful commands
+## Commands
 
-`./script/build_and_run.sh --verify` canonical Debug build/run. `./scripts/test.sh` full suite with isolated store; `swift test` core. `./scripts/package.sh <new-version>` refuses existing artifact. Do not run simultaneous Xcode builds/tests against DerivedData. Use isolated --store-directory for QA, never replace normal catalog with QA data.
+`./script/build_and_run.sh --verify` canonical Debug. `./scripts/test.sh` full suite (isolated test store); `swift test` core. `./scripts/package.sh <new-version>` refuses overwrite. Avoid concurrent Xcode commands against DerivedData. QA uses --store-directory; never copy its catalog into normal storage.

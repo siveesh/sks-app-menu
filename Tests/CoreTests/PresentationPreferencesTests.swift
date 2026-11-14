@@ -3,6 +3,19 @@ import XCTest
 @testable import MenuCore
 
 final class PresentationPreferencesTests: XCTestCase, @unchecked Sendable {
+    func testRefreshWarningChoiceSurvivesRoundTripAndOlderFilesDefaultToShown() throws {
+        for (block, hidden) in [("{}", false), (#"{"hideRefreshWarnings":true}"#, true)] {
+            let data = Data("{\"schemaVersion\":1,\"apps\":[],\"categories\":[],\"presentation\":\(block)}".utf8)
+            let document = try JSONDecoder().decode(CatalogDocument.self, from: data)
+            let encoded = try JSONEncoder().encode(document)
+            let json = try XCTUnwrap(JSONSerialization.jsonObject(with: encoded) as? [String: Any])
+            let presentation = try XCTUnwrap(json["presentation"] as? [String: Any])
+            XCTAssertEqual(presentation["hideRefreshWarnings"] as? Bool, hidden)
+        }
+        let malformed = Data(#"{"schemaVersion":1,"apps":[],"categories":[],"presentation":{"hideRefreshWarnings":"yes"}}"#.utf8)
+        XCTAssertThrowsError(try JSONDecoder().decode(CatalogDocument.self, from: malformed))
+    }
+
     // Losing the new optional block on encode would silently drop user choices.
     func testNewCatalogWritesDefaultPresentationBlock() throws {
         let data = try JSONEncoder().encode(CatalogDocument())

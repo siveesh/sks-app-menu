@@ -58,3 +58,9 @@ All notable project changes are documented here.
 - Add original Prism Launcher layered Liquid Glass icon with inspected Default/Dark/Mono appearances.
 - Extend schema1 with an optional presentation block; older catalogs keep all app IDs and preferences. Unknown density strings fall back to Comfortable. No runtime dependencies added.
 - Fix All Applications sidebar selection and minimized launch-error routing during QA.59 tests pass; local ad-hoc package only.
+
+## 1.1.1 (7) —2026-11-14
+
+- Add saved Hide Refresh Warnings option in the menu and Manage Applications, plus a launcher banner Hide button.
+- Suppress scan notices in both launchers while preserving diagnostic details in management and keeping other error notices visible.
+- Default older catalogs to showing warnings; preserve existing Dock/density/application preferences. No scanner, dependency or permission changes.

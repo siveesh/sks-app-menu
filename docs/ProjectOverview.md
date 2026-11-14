@@ -38,3 +38,5 @@ User preferences survive refresh/restart; bundles remain read-only; traversal st
 Optional Dock presence with categorized launcher window (user-selected approach), shared catalog and Compact/Comfortable/Spacious layouts. Detailed design explicitly approved on2026-11-14 and implemented in1.1.0. Dock is opt-in; the menu remains available. Original layered Prism Launcher icon supports native glass and dark appearances.
 
 Confirmed iOS-on-Mac application wrappers are supported and classified in iOS Apps, while retaining outer launch URLs and existing user overrides.
+
+Refresh warning visibility is user-controlled in1.1.1: saved Hide Refresh Warnings option suppresses scan notices in both launchers, with raw details retained in management. Other important notices remain visible.

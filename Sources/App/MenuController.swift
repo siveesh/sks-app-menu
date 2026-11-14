@@ -59,7 +59,7 @@ final class MenuController: NSObject, NSMenuDelegate {
         if model.isReadOnly { command("Recover Catalog…", action: #selector(manage)) }
         if model.dockWarning != nil { command("Dock Visibility Notice…", action: #selector(manage)) }
         if model.saveWarning != nil { command("Unsaved Changes…", action: #selector(manage)) }
-        if !model.scanWarnings.isEmpty { command("Refresh Warnings…", action: #selector(manage)) }
+        if !model.visibleScanWarnings.isEmpty { command("Refresh Warnings…", action: #selector(manage)) }
         let apps = model.visibleApps
         let grouped = Dictionary(grouping: apps, by: { model.categoryName(for: $0) })
         for category in grouped.keys.sorted(by: { $0.localizedStandardCompare($1) == .orderedAscending }) {
@@ -91,6 +91,8 @@ final class MenuController: NSObject, NSMenuDelegate {
         command("Add Application…", action: #selector(add), key: "o", enabled: model.canEdit)
         command("Manage Applications…", action: #selector(manage), key: ",")
         command("Refresh", action: #selector(refresh), key: "r", enabled: model.canEdit)
+        command("Hide Refresh Warnings", action: #selector(toggleRefreshWarnings), enabled: model.canEdit)
+        menu.items.last?.state = model.document.presentation.hideRefreshWarnings ? .on : .off
         menu.addItem(.separator())
         command("About…", action: #selector(about))
         command("Help", action: #selector(help), key: "?")
@@ -141,6 +143,7 @@ final class MenuController: NSObject, NSMenuDelegate {
     @objc private func add() { windows.open("manage"); model.chooseApplication() }
     @objc private func manage() { windows.open("manage") }
     @objc private func refresh() { model.refresh() }
+    @objc private func toggleRefreshWarnings() { model.setHideRefreshWarnings(!model.document.presentation.hideRefreshWarnings) }
     @objc private func about() { windows.open("about") }
     @objc private func help() { windows.open("help") }
     @objc private func quit() { NSApp.terminate(nil) }

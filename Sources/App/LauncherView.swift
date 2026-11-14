@@ -156,11 +156,16 @@ private struct LauncherWarnings: View {
     let model: CatalogModel
     let manage: () -> Void
     var body: some View {
-        if let warning = model.recoveryWarning ?? model.saveWarning ?? model.dockWarning ?? model.scanWarnings.first {
+        if let warning = model.launcherWarning {
             HStack(alignment: .top) {
                 Label(warning, systemImage: "exclamationmark.triangle")
                     .font(.callout).textSelection(.enabled)
                 Spacer(minLength: 8)
+                if model.recoveryWarning == nil && model.saveWarning == nil && model.dockWarning == nil {
+                    Button("Hide") { model.setHideRefreshWarnings(true) }
+                        .help("Hide refresh warnings in the menu and launcher. Change this in Manage Applications.")
+                        .disabled(!model.canEdit)
+                }
                 Button("Manage…", action: manage)
             }
             .padding().background(.orange.opacity(0.12))

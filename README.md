@@ -36,6 +36,8 @@ Click the grid icon in the menu bar. Apps are grouped by category, with names an
 
 Choose **Show in Dock** to enable the categorized launcher. **Open Launcher…** also opens it without a Dock icon. Compact, Comfortable, and Spacious change icon, text, and row sizes; your choice is saved. The window shares search, categories, visibility, and exact-copy launching with the menu. Clicking the Dock icon restores the same window. The original Prism Launcher icon uses native Icon Composer layers and supports Default, Dark, and Mono appearances.
 
+**Hide Refresh Warnings** in the menu or Manage Applications suppresses scan notices in both launchers and remembers your choice. Details remain available in Manage Applications; clear the option to restore notices. The launcher banner also has a Hide button.
+
 ## Settings and recovery
 
 Settings live in `~/Library/Application Support/com.siveesh.sksappmenu/catalog.json`; the previous valid state is in `catalog-backup.json`. Hiding changes only this launcher. Installed bundles are never edited or removed. Unknown/missing automatic categories use Other until overridden. Duplicate installed copies remain independent.
@@ -47,7 +49,7 @@ For isolated QA, launch the app with `--manage --store-directory /absolute/test/
 ## Local packaging
 
 ```bash
-./scripts/package.sh 1.1.0-local
+./scripts/package.sh 1.1.1-local
 ```
 
 Creates a Release-configuration DMG in Release with the app, Applications link and installation notes. It refuses to overwrite an existing same-version artifact. This script produces an **ad-hoc signed local development build**, with Hardened Runtime, **not a Developer ID signed or notarized public release**. Gatekeeper may block an ad-hoc download; do not disable system security. Public distribution requires signing/notarization and a repository licence decision.

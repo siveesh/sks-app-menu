@@ -63,6 +63,8 @@ final class CatalogModel {
     }
 
     var canEdit: Bool { !isLoading && !isReadOnly }
+    var visibleScanWarnings: [String] { document.presentation.hideRefreshWarnings ? [] : scanWarnings }
+    var launcherWarning: String? { recoveryWarning ?? saveWarning ?? dockWarning ?? visibleScanWarnings.first }
     var visibleApps: [AppRecord] { document.apps.filter { !$0.hidden && $0.availability != .missing } }
     func launcherApps(category: String?, query: String) -> [AppRecord] {
         visibleApps.filter { app in
@@ -197,6 +199,12 @@ final class CatalogModel {
     func setLauncherDensity(_ density: LauncherDensity) {
         guard canEdit, document.presentation.launcherDensity != density else { return }
         document.presentation.launcherDensity = density
+        changed()
+    }
+
+    func setHideRefreshWarnings(_ hidden: Bool) {
+        guard canEdit, document.presentation.hideRefreshWarnings != hidden else { return }
+        document.presentation.hideRefreshWarnings = hidden
         changed()
     }
 
